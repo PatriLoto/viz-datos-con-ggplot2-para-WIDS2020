@@ -12,9 +12,8 @@ by Patricia A. Loto
 :spiral_calendar: Jueves 5 de marzo del 2020  
 :alarm_clock:     15:30 - 17:30  
 :hotel:           Universidad Tecnológica Nacional- Facultad Regional Córdoba- Maestro M. Lopez esq. Cruz Roja, Córdoba.
-
 :writing_hand:    
-:earth_americas:  [WIDS2020](https://http://metcba.org/)  
+:earth_americas:  [Más información sobre WIDS2020](https://http://metcba.org/)  
 
 ## Descripción
 
@@ -44,3 +43,5 @@ my_packages <- c("tidyverse", "broom", "coefplot", "cowplot", "drat",
 install.packages(my_packages, repos = "http://cran.rstudio.com")
 
 ```
+## Slides y Código
+Pronto se subirá rodo el material a este repositorio.
