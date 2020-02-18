@@ -18,14 +18,16 @@ by Patricia A. Loto
 ## Descripción
 
 ## ¿Este curso es para mí?
-1.Tiene conocimientos básicos del lenguaje R o Python y quieres aprender especificamente sobre visualización de datos.
-2.Quieres conocer cúales son los componentes visuales de un gráfico.
-3.Quieres entender los principios básicos de la Grámatica de gráficos en capas y cómo son implementadas en ggplot.
-4.Quieres conocer cuáles son los gráficos más comúnmente utilizados y cómo desarrollarlos con ggplot. 
+1. Tiene conocimientos básicos del lenguaje R o Python y quieres aprender especificamente sobre visualización de datos.
+2. Quieres conocer cúales son los componentes visuales de un gráfico.
+3. Quieres entender los principios básicos de la Grámatica de gráficos en capas y cómo son implementadas en ggplot.
+4. Quieres conocer cuáles son los gráficos más comúnmente utilizados y cómo desarrollarlos con ggplot.
+
 
 ## Antes del curso
 
 - Trabajaremos con la versión más reciente de R y Rstudio, por lo que deberás traerlos instalados, así cómo a los paquetes que utilizaremos para el desarrollo del mismo.
+
 
 ### Instalación de R and RStudio en tu computadora portátil
 
