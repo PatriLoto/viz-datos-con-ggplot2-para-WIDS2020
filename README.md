@@ -20,8 +20,8 @@ by Patricia A. Loto
 ## ¿Este curso es para mí?
 1. Tienes conocimientos básicos del lenguaje R o Python y quieres aprender especificamente sobre visualización de datos.
 2. Quieres conocer cúales son los componentes visuales de un gráfico.
-3. Quieres entender los principios básicos de la Grámatica de gráficos en capas y cómo son implementadas en ggplot.
-4. Quieres conocer cuáles son los gráficos más comúnmente utilizados y cómo desarrollarlos con ggplot.
+3. Quieres entender los principios básicos de la Grámatica de gráficos en capas y cómo son implementadas en ggplot2.
+4. Quieres conocer cuáles son los gráficos más comúnmente utilizados y cómo desarrollarlos con ggplot2.
 
 
 ## Antes del workshop
@@ -30,7 +30,7 @@ Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versió
 
 ### Instalación de R and RStudio 
 
-- Una versión reciente de **R (>=3.6.2)**, disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/). Ten cuenta la versión de tu sistema operativo para descargar la correcta.
+- Una versión reciente de **R (>=3.6.2)**, disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/). Ten en cuenta la versión de tu sistema operativo para descargar la correcta.
 
 - Una versión reciente de **Rstudio Desktop (>=1.2.5033)**, disponible de manera gratuita para su descarga en [Rstudio](https://www.rstudio.com/download). Ten cuenta la versión de tu sistema operativo (32 o 64 bits) para descargar la correcta.
 
@@ -52,7 +52,8 @@ Para poder instalar de manera exitosa los paquetes, es necesario que estés cone
 ## Slides y Código
 Pronto se subirá todo el material a este repositorio.
 
-*Espero conocerte pronto,*
+
+#### Espero conocerte pronto,
 
 **Patricia**
 
