@@ -35,7 +35,7 @@ by Patricia A. Loto
 - Once the applications are installed, launch RStudio. Either type or copy and paste the following lines of code at R’s command prompt, located in the RStudio window named “Console”, and then hit return. In the code below, the <- arrow is made up of two keystrokes, first < and then the short dash or minus symbol, -.
 
 ### Instalación de paquetes
-Para instalar los paquetes deberás correr las siguientes sentencias:
+Para instalar los paquetes que utilizaremos en el curso, deberás correr las siguientes sentencias:
 ``` R
 mis_paquetes <- c("tidyverse", "coefplot", "cowplot", "patchwork" "drat",
                  "gapminder", "GGally", "ggrepel", "ggridges",  
