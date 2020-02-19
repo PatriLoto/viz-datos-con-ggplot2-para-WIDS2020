@@ -28,11 +28,11 @@ by Patricia A. Loto
 
 Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versión más reciente de R y Rstudio, por lo que para aprovecharlo, deberás traer una pc portátil con lo siguiente instalado:
 
-### Instalación de R and RStudio en tu computadora portátil
+### Instalación de R and RStudio 
 
-- Una versión reciente de **R (>=3.6.2)**, disponible de manera gratuita para su descarga en CRAN[https://cran.r-project.org/]. Ten cuenta la versión de tu sistema operativo para descargar la correcta.
+- Una versión reciente de **R (>=3.6.2)**, disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/). Ten cuenta la versión de tu sistema operativo para descargar la correcta.
 
-- Una versión reciente de **Rstudio Desktop (>=1.2.5033)**, disponible de manera gratuita para su descarga en Rstudio[https://www.rstudio.com/download]. Ten cuenta la versión de tu sistema operativo (32 o 64 bits) para descargar la correcta.
+- Una versión reciente de **Rstudio Desktop (>=1.2.5033)**, disponible de manera gratuita para su descarga en [Rstudio](https://www.rstudio.com/download). Ten cuenta la versión de tu sistema operativo (32 o 64 bits) para descargar la correcta.
 
 - Los paquetes que utilizaremos pueden instalarse, abriendo Rstudio y ejecutando las siguientes sentencias:
 
