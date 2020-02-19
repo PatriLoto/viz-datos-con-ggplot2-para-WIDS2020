@@ -24,18 +24,18 @@ by Patricia A. Loto
 4. Quieres conocer cuáles son los gráficos más comúnmente utilizados y cómo desarrollarlos con ggplot.
 
 
-## Antes del curso
+## Antes del workshop
 
-- Trabajaremos con la versión más reciente de R y Rstudio, por lo que deberás traerlos instalados, así como los paquetes que utilizaremos para el desarrollo del mismo.
-
+Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versión más reciente de R y Rstudio, por lo que para aprovecharlo, deberás traer una pc portátil con lo siguiente instalado:
 
 ### Instalación de R and RStudio en tu computadora portátil
 
-- If you are running the software locally on your laptop, begin by installing R (<http://cloud.r-project.org>) and RStudio (<http://rstudio.com>). 
-- Once the applications are installed, launch RStudio. Either type or copy and paste the following lines of code at R’s command prompt, located in the RStudio window named “Console”, and then hit return. In the code below, the <- arrow is made up of two keystrokes, first < and then the short dash or minus symbol, -.
+- Una versión reciente de **R (>=3.6.2)**, el cual está disponible de manera gratuita para su descarga en CRAN [https://cran.r-project.org/]. Ten cuenta la versión de tu sistema operativo para descargar la correcta.
 
-### Instalación de paquetes
-Para instalar los paquetes que utilizaremos en el curso, deberás correr las siguientes sentencias:
+- Una versión reciente de **Rstudio Desktop (>=1.2.5033)**, disponible de manera gratuita para su descarga en Rstudio [https://www.rstudio.com/download]. Ten cuenta la versión de tu sistema operativo (32 o 64 bits)para descargar la correcta.
+
+- Los paquetes que utilizaremos, los cuales pueden instalarse, abriendo Rstudio y ejecutando las siguientes sentencias:
+
 ``` R
 mis_paquetes <- c("tidyverse", "coefplot", "cowplot", "patchwork" "drat",
                  "gapminder", "GGally", "ggrepel", "ggridges",  
@@ -47,5 +47,12 @@ mis_paquetes <- c("tidyverse", "coefplot", "cowplot", "patchwork" "drat",
 install.packages(mis_paquetes, repos = "http://cran.rstudio.com")
 
 ```
+Para poder instalar de manera exitosa los paquetes, es necesario que estés conectado a Internet.
+
 ## Slides y Código
 Pronto se subirá todo el material a este repositorio.
+
+*Espero conocerte pronto,*
+
+**Patricia**
+
