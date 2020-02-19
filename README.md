@@ -26,7 +26,7 @@ by Patricia A. Loto
 
 ## Antes del curso
 
-- Trabajaremos con la versión más reciente de R y Rstudio, por lo que deberás traerlos instalados, así cómo a los paquetes que utilizaremos para el desarrollo del mismo.
+- Trabajaremos con la versión más reciente de R y Rstudio, por lo que deberás traerlos instalados, así como los paquetes que utilizaremos para el desarrollo del mismo.
 
 
 ### Instalación de R and RStudio en tu computadora portátil
@@ -34,16 +34,18 @@ by Patricia A. Loto
 - If you are running the software locally on your laptop, begin by installing R (<http://cloud.r-project.org>) and RStudio (<http://rstudio.com>). 
 - Once the applications are installed, launch RStudio. Either type or copy and paste the following lines of code at R’s command prompt, located in the RStudio window named “Console”, and then hit return. In the code below, the <- arrow is made up of two keystrokes, first < and then the short dash or minus symbol, -.
 
+### Instalación de paquetes
+Para instalar los paquetes deberás correr las siguientes sentencias:
 ``` R
-my_packages <- c("tidyverse", "broom", "coefplot", "cowplot", "drat",
+mis_paquetes <- c("tidyverse", "coefplot", "cowplot", "patchwork" "drat",
                  "gapminder", "GGally", "ggrepel", "ggridges",  
                  "graphlayouts", "gridExtra", "here", "interplot", "margins", 
                  "maps", "mapproj", "mapdata", "MASS", "naniar", "prismatic", 
                  "quantreg", "rlang", "scales", "socviz", "survey", "srvyr", 
                  "viridis", "viridisLite", "devtools", "ggforce", "ggraph", "sf")
 
-install.packages(my_packages, repos = "http://cran.rstudio.com")
+install.packages(mis_paquetes, repos = "http://cran.rstudio.com")
 
 ```
 ## Slides y Código
-Pronto se subirá rodo el material a este repositorio.
+Pronto se subirá todo el material a este repositorio.
