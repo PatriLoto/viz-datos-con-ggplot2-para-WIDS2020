@@ -12,7 +12,6 @@ by Patricia A. Loto
 :spiral_calendar: Jueves 5 de marzo del 2020  
 :alarm_clock:     15:30 - 18:30  
 :hotel:           Universidad Tecnológica Nacional- Facultad Regional Córdoba- Maestro M. Lopez esq. Cruz Roja, Córdoba.
-   
 :earth_americas:  [Más información sobre WIDS2020](https://http://metcba.org/)  
 
 ## Descripción
@@ -30,9 +29,9 @@ Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versió
 
 ### Instalación de R and RStudio 
 
-- Una versión reciente de **R (>=3.6.2)**, disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/). 
+- Una versión reciente de **R (>=3.6.2)** disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/). 
 
-- Una versión reciente de **Rstudio Desktop (>=1.2.5033)**, disponible de manera gratuita para su descarga en [Rstudio](https://www.rstudio.com/download). 
+- Una versión reciente de **Rstudio Desktop (>=1.2.5033)** disponible de manera gratuita para su descarga en [Rstudio](https://www.rstudio.com/download). 
 
 En ambos casos, ten en cuenta cuál es el Sistema Operativo que utilizas y la versión del mismo (32 o 64 bits) para descargar la versión correcta tanto de R como de Rstudio.
 
@@ -52,7 +51,7 @@ Para poder instalar de manera exitosa los paquetes, es necesario que estés cone
 
 ### ¿Cómo verifico que los paquetes se instalaron correctamente?
 
-Para verificar que las librerías se cargaron correctamente, por favor ejecuta las sentencias que están a continuación:
+Para verificar que los paquetes se cargaron correctamente, por favor ejecutá las sentencias que están a continuación:
 
 ``` R
 easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","here","cowplot", 
