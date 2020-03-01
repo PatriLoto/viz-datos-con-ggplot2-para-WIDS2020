@@ -3,7 +3,7 @@
 Visualización de datos en R con ggplot2
 ================
 
-### WIDS2020
+### WIDS2020 - Córdoba
 
 by Patricia A. Loto
 
@@ -26,15 +26,15 @@ by Patricia A. Loto
 
 ## Antes del workshop
 
-Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versión más reciente de R y Rstudio, por lo que para aprovecharlo, deberás traer una pc portátil con lo siguiente instalado:
+Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versión más reciente de R y Rstudio, por lo que, para aprovecharlo deberás traer una pc portátil con lo siguiente instalado:
 
 ### Instalación de R and RStudio 
 
-- Una versión reciente de **R (>=3.6.2)**, disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/). Ten en cuenta la versión de tu sistema operativo para descargar la correcta.
+- Una versión reciente de **R (>=3.6.2)**, disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/). 
 
 - Una versión reciente de **Rstudio Desktop (>=1.2.5033)**, disponible de manera gratuita para su descarga en [Rstudio](https://www.rstudio.com/download). 
 
-En ambos casos, ten en cuenta la versión de tu sistema operativo (32 o 64 bits) para descargar la versión correcta tanto de R como Rstudio.
+En ambos casos, ten en cuenta cuál es el Sistema Operativo que utilizas y la versión del mismo (32 o 64 bits) para descargar la versión correcta tanto de R como Rstudio.
 
 - Los paquetes que utilizaremos pueden instalarse, abriendo Rstudio y ejecutando las siguientes sentencias:
 
@@ -43,14 +43,14 @@ mis_paquetes <- c("tidyverse", "gapminder","babynames","survey","socviz","here",
                  "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
                  "scales","wesanderson","viridis", "viridisLite","prismatic","ggthemes",
                  "hrbrthemes","plotly","highcharter","GGally","sf","maps", "mapdata",
-                 "mapproj","rnaturalearth","devtools")
+                 "mapproj","rnaturalearth","devtools", "easypackages")
 
 install.packages(mis_paquetes, repos = "http://cran.rstudio.com")
 
 ```
 Para poder instalar de manera exitosa los paquetes, es necesario que estés conectado a Internet.
 
-### ¿Cómo verifico quelos paquetes se instalaron correctamente?
+### ¿Cómo verifico que los paquetes se instalaron correctamente?
 
 Para verificar que las librerías se cargaron correctamente, por favor ejecuta las sentencias que están a continuación:
 
