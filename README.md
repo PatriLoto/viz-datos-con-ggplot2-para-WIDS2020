@@ -63,7 +63,7 @@ easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","
 
 ``` 
 
-:writing_hand:  ## Slides y Código
+## Slides y Código  :writing_hand:
 Pronto se subirá todo el material a este repositorio.
 
 
