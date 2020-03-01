@@ -50,6 +50,8 @@ install.packages(mis_paquetes, repos = "http://cran.rstudio.com")
 ```
 Para poder instalar de manera exitosa los paquetes, es necesario que estés conectado a Internet.
 
+### ¿Cómo verifico quelos paquetes se instalaron correctamente?
+
 Para verificar que las librerías se cargaron correctamente, por favor ejecuta las sentencias que están a continuación:
 
 ``` R
