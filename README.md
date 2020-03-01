@@ -32,7 +32,9 @@ Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versió
 
 - Una versión reciente de **R (>=3.6.2)**, disponible de manera gratuita para su descarga en [CRAN](https://cran.r-project.org/). Ten en cuenta la versión de tu sistema operativo para descargar la correcta.
 
-- Una versión reciente de **Rstudio Desktop (>=1.2.5033)**, disponible de manera gratuita para su descarga en [Rstudio](https://www.rstudio.com/download). Ten cuenta la versión de tu sistema operativo (32 o 64 bits) para descargar la correcta.
+- Una versión reciente de **Rstudio Desktop (>=1.2.5033)**, disponible de manera gratuita para su descarga en [Rstudio](https://www.rstudio.com/download). 
+
+En ambos casos, ten en cuenta la versión de tu sistema operativo (32 o 64 bits) para descargar la versión correcta tanto de R como Rstudio.
 
 - Los paquetes que utilizaremos pueden instalarse, abriendo Rstudio y ejecutando las siguientes sentencias:
 
