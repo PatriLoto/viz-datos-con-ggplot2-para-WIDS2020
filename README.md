@@ -37,7 +37,7 @@ Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versió
 - Los paquetes que utilizaremos pueden instalarse, abriendo Rstudio y ejecutando las siguientes sentencias:
 
 ``` R
-mis_paquetes <- c("tidyverse", "coefplot", "cowplot", "patchwork" "drat",
+mis_paquetes <- c("tidyverse", "cowplot", "patchwork" "drat",
                  "gapminder", "GGally", "ggrepel", "ggridges",  
                  "graphlayouts", "gridExtra", "here", "interplot", "margins", 
                  "maps", "mapproj", "mapdata", "MASS", "naniar", "prismatic", 
