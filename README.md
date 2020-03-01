@@ -37,12 +37,11 @@ Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versió
 - Los paquetes que utilizaremos pueden instalarse, abriendo Rstudio y ejecutando las siguientes sentencias:
 
 ``` R
-mis_paquetes <- c("tidyverse", "cowplot", "patchwork" "drat",
-                 "gapminder", "GGally", "ggrepel", "ggridges",  
-                 "graphlayouts", "gridExtra", "here", "interplot", "margins", 
-                 "maps", "mapproj", "mapdata", "MASS", "naniar", "prismatic", 
-                 "quantreg", "rlang", "scales", "socviz", "survey", "srvyr", 
-                 "viridis", "viridisLite", "devtools", "ggforce", "ggraph", "sf")
+mis_paquetes <- c("tidyverse", "gapminder","babynames","survey","socviz","here","cowplot", 
+                 "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
+                 "scales","wesanderson","viridis", "viridisLite","prismatic","ggthemes",
+                 "hrbrthemes","plotly","highcharter","GGally","sf","maps", "mapdata",
+                 "mapproj","rnaturalearth","devtools")
 
 install.packages(mis_paquetes, repos = "http://cran.rstudio.com")
 
