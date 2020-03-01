@@ -15,7 +15,7 @@ by Patricia A. Loto
    
 :earth_americas:  [Más información sobre WIDS2020](https://http://metcba.org/)  
 
-:writing_hand:  ## Descripción
+## Descripción
 
 ## ¿Este curso es para mí?
 1. Tienes conocimientos básicos del lenguaje R o Python y quieres aprender especificamente sobre visualización de datos.
@@ -63,7 +63,7 @@ easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","
 
 ``` 
 
-## Slides y Código
+:writing_hand:  ## Slides y Código
 Pronto se subirá todo el material a este repositorio.
 
 
