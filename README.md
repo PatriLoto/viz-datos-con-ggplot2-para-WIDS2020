@@ -12,10 +12,10 @@ by Patricia A. Loto
 :spiral_calendar: Jueves 5 de marzo del 2020  
 :alarm_clock:     15:30 - 18:30  
 :hotel:           Universidad Tecnológica Nacional- Facultad Regional Córdoba- Maestro M. Lopez esq. Cruz Roja, Córdoba.
-:writing_hand:    
+   
 :earth_americas:  [Más información sobre WIDS2020](https://http://metcba.org/)  
 
-## Descripción
+:writing_hand:  ## Descripción
 
 ## ¿Este curso es para mí?
 1. Tienes conocimientos básicos del lenguaje R o Python y quieres aprender especificamente sobre visualización de datos.
@@ -34,7 +34,7 @@ Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versió
 
 - Una versión reciente de **Rstudio Desktop (>=1.2.5033)**, disponible de manera gratuita para su descarga en [Rstudio](https://www.rstudio.com/download). 
 
-En ambos casos, ten en cuenta cuál es el Sistema Operativo que utilizas y la versión del mismo (32 o 64 bits) para descargar la versión correcta tanto de R como Rstudio.
+En ambos casos, ten en cuenta cuál es el Sistema Operativo que utilizas y la versión del mismo (32 o 64 bits) para descargar la versión correcta tanto de R como de Rstudio.
 
 - Los paquetes que utilizaremos pueden instalarse, abriendo Rstudio y ejecutando las siguientes sentencias:
 
