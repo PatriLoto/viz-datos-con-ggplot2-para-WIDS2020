@@ -50,6 +50,17 @@ install.packages(mis_paquetes, repos = "http://cran.rstudio.com")
 ```
 Para poder instalar de manera exitosa los paquetes, es necesario que estés conectado a Internet.
 
+Para verificar que las librerías se cargaron correctamente, por favor ejecuta las sentencias que están a continuación:
+
+``` R
+easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","here","cowplot", 
+                        "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
+                        "scales","wesanderson","viridis", "viridisLite","prismatic","ggthemes",
+                        "hrbrthemes","plotly","highcharter","GGally","sf","maps", "mapdata",
+                        "mapproj","rnaturalearth","devtools")
+
+``` 
+
 ## Slides y Código
 Pronto se subirá todo el material a este repositorio.
 
