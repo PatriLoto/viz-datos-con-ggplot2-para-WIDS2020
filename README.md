@@ -57,8 +57,8 @@ Para verificar que los paquetes se cargaron correctamente, por favor ejecutá la
 ``` R
 easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","here","cowplot", 
                         "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
-                        "scales","wesanderson","viridis", "viridisLite","prismatic","ggthemes",
-                        "hrbrthemes","plotly","highcharter","GGally","sf","maps", "mapdata",
+                        "scales","wesanderson","viridis", "viridisLite","prismatic","fishualize",
+                        "ggthemes","hrbrthemes","plotly","highcharter","GGally","sf","maps", "mapdata",
                         "mapproj","rnaturalearth","devtools")
 
 ``` 
