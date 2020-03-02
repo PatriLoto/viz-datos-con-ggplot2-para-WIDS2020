@@ -40,10 +40,10 @@ En ambos casos, ten en cuenta cuál es el Sistema Operativo que utilizas y la ve
 
 ``` R
 mis_paquetes <- c("tidyverse", "gapminder","babynames","survey","socviz","here","cowplot", 
-                 "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
-                 "scales","wesanderson","viridis", "viridisLite","prismatic","ggthemes",
-                 "hrbrthemes","plotly","highcharter","GGally","sf","maps", "mapdata",
-                 "mapproj","rnaturalearth","devtools", "easypackages")
+                  "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
+                  "scales","wesanderson","viridis", "viridisLite","prismatic","fishualize",
+                  "ggthemes","hrbrthemes","plotly","highcharter","GGally","sf","maps", "mapdata",
+                  "mapproj","rnaturalearth","devtools")
 
 install.packages(mis_paquetes, repos = "http://cran.rstudio.com")
 
