@@ -42,8 +42,8 @@ En ambos casos, ten en cuenta cuál es el Sistema Operativo que utilizas y la ve
 mis_paquetes <- c("tidyverse", "gapminder","babynames","survey","socviz","here","cowplot", 
                   "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
                   "scales","wesanderson","viridis", "viridisLite","prismatic","fishualize",
-                  "RColorBrewer","ggthemes","hrbrthemes","plotly","highcharter","GGally","sf","maps", "mapdata",
-                  "mapproj","rnaturalearth","devtools")
+                  "RColorBrewer","ggthemes","hrbrthemes","plotly","highcharter","GGally","sf",
+                  "maps", "mapdata","mapproj","rnaturalearth","devtools")
 
 install.packages(mis_paquetes, repos = "http://cran.rstudio.com")
 remotes::install_github("clauswilke/ggtext")
@@ -59,8 +59,8 @@ Para verificar que los paquetes se cargaron correctamente, por favor ejecutá la
 easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","here","cowplot", 
                         "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
                         "scales","wesanderson","viridis", "viridisLite","prismatic","fishualize",
-                        "RColorBrewer", "ggtext","ggthemes","hrbrthemes","plotly","highcharter","GGally","sf","maps", "mapdata",
-                        "mapproj","rnaturalearth","devtools")
+                        "RColorBrewer", "ggtext","ggthemes","hrbrthemes","plotly","highcharter","GGally",
+                        "sf","maps", "mapdata","mapproj","rnaturalearth","devtools")
 
 ``` 
 
