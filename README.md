@@ -59,8 +59,7 @@ Para verificar que los paquetes se cargaron correctamente, por favor ejecutá la
 easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","here","cowplot", 
                         "patchwork", "ggrepel","ggridges","ggforce", "gridExtra","extrafont",
                         "scales","wesanderson","viridis", "viridisLite","prismatic","fishualize",
-                        "RColorBrewer",
-                        "ggthemes","hrbrthemes","plotly","highcharter","GGally","sf","maps", "mapdata",
+                        "RColorBrewer", "ggtext","ggthemes","hrbrthemes","plotly","highcharter","GGally","sf","maps", "mapdata",
                         "mapproj","rnaturalearth","devtools")
 
 ``` 
