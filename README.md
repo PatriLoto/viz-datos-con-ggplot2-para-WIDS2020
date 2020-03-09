@@ -67,7 +67,12 @@ easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","
 ## Slides y Código  
 :writing_hand: Pronto se subirá todo el material a este repositorio.
 
+## **Referencias** 
+* Libro [R Graphics Coobook](http://www.cookbook-r.com/Graphs/)
 
+* Capítulo: [Barplots](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/)
+
+* Libro [R para Ciencia de Datos](https://es.r4ds.hadley.nz/)
 
 
 
