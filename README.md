@@ -68,11 +68,16 @@ easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","
 :writing_hand: Pronto se subirá todo el material a este repositorio.
 
 ## **Referencias** 
-* Libro [R Graphics Coobook](http://www.cookbook-r.com/Graphs/)
 
-* Capítulo: [Barplots](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/)
+Para la elaboración tanto del material teórico como de los ejercicios prácticos se utilizaron como referencia, los libros descriptos a continuación:
 
-* Libro [R para Ciencia de Datos](https://es.r4ds.hadley.nz/)
+* [R Graphics Cookbook: Practical Recipes for Visualizing Data](http://www.cookbook-r.com/Graphs/) de Winston Chang  - Capítulo: [Bar graphs](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/)
+
+* [R para Ciencia de Datos](https://es.r4ds.hadley.nz/) de Hadley Wickham.
+
+* [A Data Visualization: a practical introduction](http://socviz.co/) de Kieran Healy.  
+
+* [Fundamentals of Data Visualization] (https://serialmentor.com/dataviz/) de Claus Wilke.
 
 
 
