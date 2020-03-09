@@ -77,7 +77,7 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 
 * [A Data Visualization: a practical introduction](http://socviz.co/) de Kieran Healy.  
 
-* [Fundamentals of Data Visualization] (https://serialmentor.com/dataviz/) de Claus Wilke.
+* [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) de Claus Wilke.
 
 
 
