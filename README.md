@@ -68,7 +68,7 @@ easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","
 
 En el presente curso trabajaremos con el paquete ggplot2, pero existen otros paquetes que puedes explorar:
 
-* [patchwork](https://github.com/thomasp85/patchwork)/[cowplot](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html): tienen la misma finalidad, permiten combinar dos o más gráficos)
+* [patchwork](https://github.com/thomasp85/patchwork)/[cowplot](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html): tienen la misma finalidad, permiten combinar dos o más gráficos.
 
 * [paletteer](https://github.com/EmilHvitfeldt/paletteer): agrupa una gran colección de paletas de colores.
 
@@ -76,9 +76,9 @@ En el presente curso trabajaremos con el paquete ggplot2, pero existen otros paq
 
 * [gganimate](https://github.com/thomasp85/gganimate): permite agregarle animación a los gráficos hechos con ggplot2.
 
-* [esquisse](https://github.com/dreamRs/esquisse)
+* [esquisse](https://github.com/dreamRs/esquisse): facilita la exploración y visualización de datos.
 
-
+* [ggtext](https://github.com/wilkelab/ggtext): permite extender las funcionalidades de ggplot2, mediante la customización de títulos, subtítulos, anotaciones, etc.
 
 Espero te sean de utilidad.
 
