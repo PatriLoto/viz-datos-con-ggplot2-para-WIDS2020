@@ -1,7 +1,7 @@
 
 
 Visualización de datos en R con ggplot2() 
-![Aquí la descripción de la imagen por si no carga](https://raw.githubusercontent.com/PatriLoto/viz-datos-con-ggplot2-para-WIDS2020/master/presentacioncurso.png)
+![Aquí la descripción de la imagen por si no carga](https://raw.githubusercontent.com/PatriLoto/viz-datos-con-ggplot2-para-WIDS2020/master/presentacion_curso.png)
 ================
 
 ### WIDS2020 - Córdoba
