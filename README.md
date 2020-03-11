@@ -1,7 +1,6 @@
 
 # WIDS2020 - Córdoba
------
-## Workshop
+                                                          ## Workshop
 
 
 
