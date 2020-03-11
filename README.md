@@ -99,7 +99,6 @@ Para la elaboración tanto del material teórico como de los ejercicios práctic
 
 
 
-#### Espero conocerte pronto,
 
 **Patricia**
 
