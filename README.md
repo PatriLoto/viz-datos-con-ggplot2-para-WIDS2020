@@ -1,6 +1,7 @@
 
 # WIDS2020 - Córdoba
-### Workshop
+
+## Workshop
 
 
 
@@ -13,7 +14,7 @@
 
 
 -----
-### Fecha y Lugar
+## Fecha y Lugar
 :spiral_calendar: Jueves 5 de marzo del 2020  
 :alarm_clock:     15:30 - 18:30  
 :hotel:           Universidad Tecnológica Nacional- Facultad Regional Córdoba- Maestro M. Lopez esq. Cruz Roja, Córdoba.
