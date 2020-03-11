@@ -1,8 +1,10 @@
 
-### WIDS2020 - Córdoba
+## WIDS2020 - Córdoba
+
 
 
 ![presentacion](https://raw.githubusercontent.com/PatriLoto/viz-datos-con-ggplot2-para-WIDS2020/master/presentacion_curso.png)
+
 ================
 
 
