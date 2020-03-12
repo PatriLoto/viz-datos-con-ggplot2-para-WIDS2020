@@ -29,7 +29,7 @@
 4. Quieres conocer cuáles son los gráficos más comúnmente utilizados y cómo desarrollarlos con ggplot2.
 
 
-## :notebook:  Antes del workshop
+## :computer:  Antes del workshop
 
 Gracias por inscribirte a este workshop, en el mismo trabajaremos con la versión más reciente de R y Rstudio, por lo que, para aprovecharlo deberás traer una pc portátil con lo siguiente instalado:
 
@@ -74,7 +74,7 @@ easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","
 ## :writing_hand: Slides y Código  
  Pronto se subirá todo el material a este repositorio.
 
-## **Bibliografía** 
+## :notebook: **Bibliografía** 
 
 Para la elaboración tanto del material teórico como de los ejercicios prácticos se utilizaron como referencia, los libros descriptos a continuación:
 
@@ -88,7 +88,7 @@ Bar and line graphs](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplo
 * [R para Ciencia de Datos](https://es.r4ds.hadley.nz/) de Hadley Wickham - [Capítulo 3: Visualización de datos](https://es.r4ds.hadley.nz/visualizaci%C3%B3n-de-datos.html) y [Capítulo 28: Comunicar con gráficos](https://es.r4ds.hadley.nz/comunicar-con-gr%C3%A1ficos.html).
 
 
-## :ready: **Material Extra**
+## :force: **Material Extra**
 
 ### :package: Paquetes
 
@@ -108,7 +108,7 @@ En el presente curso trabajaremos con el paquete ggplot2, pero existen otros paq
 
 Espero te sean de utilidad.
 
-###  :books: Algunos Libros más.
+###  :books:  Algunos Libros más.
 
 Para profundizar en el tema de la visualización:
 
