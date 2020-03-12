@@ -22,7 +22,7 @@
 
 ## Descripción
 
-## ¿Este curso es para mí?
+### ¿Este curso es para mí?
 1. Tienes conocimientos básicos del lenguaje R o Python y quieres aprender especificamente sobre visualización de datos.
 2. Quieres conocer cúales son los componentes visuales de un gráfico.
 3. Quieres entender los principios básicos de la Grámatica de gráficos en capas y cómo son implementadas en ggplot2.
@@ -69,7 +69,28 @@ easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","
 
 ``` 
 
-## Paquetes
+
+
+## Slides y Código  
+:writing_hand: Pronto se subirá todo el material a este repositorio.
+
+## **Bibliografía** 
+
+Para la elaboración tanto del material teórico como de los ejercicios prácticos se utilizaron como referencia, los libros descriptos a continuación:
+
+* [A Data Visualization: a practical introduction](http://socviz.co/) de Kieran Healy.  
+
+* [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) de Claus Wilke.
+
+* [R Graphics Cookbook: Practical Recipes for Visualizing Data](http://www.cookbook-r.com/Graphs/) de Winston Chang  - [Capítulo 1: 
+Bar and line graphs](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/).
+
+* [R para Ciencia de Datos](https://es.r4ds.hadley.nz/) de Hadley Wickham - [Capítulo 3: Visualización de datos](https://es.r4ds.hadley.nz/visualizaci%C3%B3n-de-datos.html) y [Capítulo 28: Comunicar con gráficos](https://es.r4ds.hadley.nz/comunicar-con-gr%C3%A1ficos.html).
+
+
+## **Material Extra**
+
+### Paquetes
 
 En el presente curso trabajaremos con el paquete ggplot2, pero existen otros paquetes que puedes explorar:
 
@@ -87,21 +108,15 @@ En el presente curso trabajaremos con el paquete ggplot2, pero existen otros paq
 
 Espero te sean de utilidad.
 
-## Slides y Código  
-:writing_hand: Pronto se subirá todo el material a este repositorio.
+###  :books: Algunos Libros más.
 
-## **Bibliografía** 
+Para profundizar en el tema de la visualización:
 
-Para la elaboración tanto del material teórico como de los ejercicios prácticos se utilizaron como referencia, los libros descriptos a continuación:
+* [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) de Hadley Wickham.
 
-* [R Graphics Cookbook: Practical Recipes for Visualizing Data](http://www.cookbook-r.com/Graphs/) de Winston Chang  - [Capítulo 1: 
-Bar and line graphs](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/)
+* [Data Visualization with R](https://rkabacoff.github.io/datavis/) de Rob Kabacoff - [Capítulo 12: Interactive Graphs](https://rkabacoff.github.io/datavis/Interactive.html) y [Capítulo 13: Advice / Best Practices ](https://rkabacoff.github.io/datavis/Advice.html)
 
-* [R para Ciencia de Datos](https://es.r4ds.hadley.nz/) de Hadley Wickham - [Capítulo 3:Visualización de datos](https://es.r4ds.hadley.nz/visualizaci%C3%B3n-de-datos.html) y [Capítulo 28: https://es.r4ds.hadley.nz/comunicar-con-gr%C3%A1ficos.html](https://es.r4ds.hadley.nz/comunicar-con-gr%C3%A1ficos.html)
 
-* [A Data Visualization: a practical introduction](http://socviz.co/) de Kieran Healy.  
-
-* [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) de Claus Wilke.
 
 
 
