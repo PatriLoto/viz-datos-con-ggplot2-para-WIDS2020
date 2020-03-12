@@ -90,13 +90,14 @@ Espero te sean de utilidad.
 ## Slides y Código  
 :writing_hand: Pronto se subirá todo el material a este repositorio.
 
-## **Referencias** 
+## **Bibliografía** 
 
 Para la elaboración tanto del material teórico como de los ejercicios prácticos se utilizaron como referencia, los libros descriptos a continuación:
 
-* [R Graphics Cookbook: Practical Recipes for Visualizing Data](http://www.cookbook-r.com/Graphs/) de Winston Chang  - Capítulo: [Bar graphs](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/)
+* [R Graphics Cookbook: Practical Recipes for Visualizing Data](http://www.cookbook-r.com/Graphs/) de Winston Chang  - [Capítulo 1: 
+Bar and line graphs](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/)
 
-* [R para Ciencia de Datos](https://es.r4ds.hadley.nz/) de Hadley Wickham.
+* [R para Ciencia de Datos](https://es.r4ds.hadley.nz/) de Hadley Wickham - [Capítulo 3:Visualización de datos](https://es.r4ds.hadley.nz/visualizaci%C3%B3n-de-datos.html) y [Capítulo 28: https://es.r4ds.hadley.nz/comunicar-con-gr%C3%A1ficos.html](https://es.r4ds.hadley.nz/comunicar-con-gr%C3%A1ficos.html)
 
 * [A Data Visualization: a practical introduction](http://socviz.co/) de Kieran Healy.  
 
