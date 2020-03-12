@@ -110,11 +110,11 @@ Espero te sean de utilidad.
 
 ###  :books:  Algunos Libros más.
 
-Para profundizar en el tema de la visualización:
+Para profundizar en el tema de la visualización de datos.
 
 * [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) de Hadley Wickham.
 
-* [Data Visualization with R](https://rkabacoff.github.io/datavis/) de Rob Kabacoff - [Capítulo 12: Interactive Graphs](https://rkabacoff.github.io/datavis/Interactive.html) y [Capítulo 13: Advice / Best Practices ](https://rkabacoff.github.io/datavis/Advice.html)
+* [Data Visualization with R](https://rkabacoff.github.io/datavis/) de Rob Kabacoff - [Capítulo 12: Interactive Graphs](https://rkabacoff.github.io/datavis/Interactive.html) y [Capítulo 13: Advice / Best Practices ](https://rkabacoff.github.io/datavis/Advice.html).
 
 
 
