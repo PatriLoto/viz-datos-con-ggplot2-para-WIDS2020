@@ -71,8 +71,8 @@ easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","
 
 
 
-## Slides y Código  
-:writing_hand: Pronto se subirá todo el material a este repositorio.
+## :writing_hand: Slides y Código  
+ Pronto se subirá todo el material a este repositorio.
 
 ## **Bibliografía** 
 
@@ -90,7 +90,7 @@ Bar and line graphs](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplo
 
 ## **Material Extra**
 
-### Paquetes
+### :package: Paquetes
 
 En el presente curso trabajaremos con el paquete ggplot2, pero existen otros paquetes que puedes explorar:
 
