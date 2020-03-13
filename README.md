@@ -118,10 +118,12 @@ Para profundizar en el tema de la visualización de datos.
 
 ### Sitios Webs sobre visualización.
 
-[The R graph Gallery](https://www.r-graph-gallery.com/)
-
+* [The R graph Gallery](https://www.r-graph-gallery.com/)
+* Highcharter
 
 ### Blogs.
+
+* [A ggplot2 Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
 
 
 
