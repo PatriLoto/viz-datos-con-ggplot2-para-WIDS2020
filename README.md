@@ -88,7 +88,7 @@ Bar and line graphs](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplo
 * [R para Ciencia de Datos](https://es.r4ds.hadley.nz/) de Hadley Wickham - [Capítulo 3: Visualización de datos](https://es.r4ds.hadley.nz/visualizaci%C3%B3n-de-datos.html) y [Capítulo 28: Comunicar con gráficos](https://es.r4ds.hadley.nz/comunicar-con-gr%C3%A1ficos.html).
 
 
-## :force: **Material Extra**
+## **Material Extra**
 
 ### :package: Paquetes
 
@@ -115,6 +115,15 @@ Para profundizar en el tema de la visualización de datos.
 * [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) de Hadley Wickham.
 
 * [Data Visualization with R](https://rkabacoff.github.io/datavis/) de Rob Kabacoff - [Capítulo 12: Interactive Graphs](https://rkabacoff.github.io/datavis/Interactive.html) y [Capítulo 13: Advice / Best Practices ](https://rkabacoff.github.io/datavis/Advice.html).
+
+### Sitios Webs sobre visualización.
+
+[The R graph Gallery](https://www.r-graph-gallery.com/)
+
+
+### Blogs.
+
+
 
 
 
