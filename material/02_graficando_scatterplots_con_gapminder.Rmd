@@ -13,8 +13,15 @@ output:
      urlcolor: #713580
  
 ---
-   
-# **Paso 0: Librerías**
+ 
+ 
+# **Gráfico paso a paso  ¿Lo hacemos en capas?**
+
+## **Paso 0: Librerías**
+
+Como ya tenemos instalados los paquetes que utilizaremos, ahora resta decirle a R de manera explícita 
+
+cuáles son los paquetes que queremos usar, en este caso:   
 
 ```{r carga_librerias, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
  
@@ -26,15 +33,20 @@ library(DT)
 
 ```
 
-## Un vistazo a gapminder 
+## Un vistazo al set de datos Gapminder
 
+Antes de empezar a graficar, inspeccionaremos el dataset `gapminder`, el cual es un paquete que
 
-```{r DT_gapminder, echo=FALSE, message=FALSE, warning=FALSE}
- datatable(gapminder)
+contiene datos sobre población, expectativa de vida y PIB per cápita de los cinco continentes y sus
 
-```
+respectivos países entre los años 1952 y 2007. 
 
-### ¿Cuál es la estructura de gapminder?
+En primer lugar, utilizaremos la función `str` para conocer la estructura de nuestro conjunto de
+
+datos, es decir, cuántas observaciones contiene, cuáles variables y de qué tipo son, tal como se
+
+observa:
+
 
 ```{r str_gapminder, message=FALSE, warning=FALSE,}
 
@@ -43,10 +55,25 @@ library(DT)
 ```
 
 
+En segundo lugar, utilizaremos la función `datatable` del paquete `DT`, la cual mostrará el conjunto 
 
-#  **Gráfico paso a paso  ¿Lo hacemos en capas?**
+de datos en el formato de tabla interactiva, la cual nos permite realizadar un recorrido rápido por 
+
+los datos, e incluso buscar algún dato en particular, por ejemplo, los datos correspondientes a 
+
+Argentina.
+
+
+
+```{r DT_gapminder, echo=FALSE, message=FALSE, warning=FALSE}
+ datatable(gapminder)
+
+```
+
 
 ## **Paso 1: Datos**
+
+Luego de darle un vistazo a los datos, estamos en condiciones de comenzar a graficar:
 
 ```{r datos_1, message=FALSE, warning=FALSE, fig.height=12, fig.width=14, fig.show = "hold"}
 
