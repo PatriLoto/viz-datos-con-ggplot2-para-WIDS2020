@@ -5,6 +5,7 @@ author: "Patricia Loto"
 date: "05-03-2020"
 output:
    html_document:
+     dev: png
      theme: "journal"
      highlight: "default"
      toc: true
@@ -21,8 +22,7 @@ Como ya tenemos instalados los paquetes que utilizaremos, ahora resta decirle a 
 
 cuáles son los paquetes que queremos usar, en este caso: 
 
-
-```{r carga_librerias, echo=TRUE, message=FALSE, warning=FALSE}
+```{r carga_librerias, echo=TRUE, message=FALSE, warning=FALSE, collapse=FALSE}
 
 library(gapminder)
 library(here)
@@ -31,21 +31,19 @@ library(DT)
 
 ```
 
-
 ## Un vistazo al set de datos Gapminder
 
-Antes de empezar a graficar, inspeccionaremos el dataset `gapminder`, el cual es un paquete que
+Antes de empezar a graficar, inspeccionaremos el dataset `gapminder`, el cual es un paquete que 
 
-contiene datos sobre población, expectativa de vida y PIB per cápita de los cinco continentes y sus
+contiene datos sobre población, expectativa de vida y PIB per cápita de los cinco continentes y sus 
 
 respectivos países entre los años 1952 y 2007. 
 
-En primer lugar, utilizaremos la función `str` para conocer la estructura de nuestro conjunto de
+En primer lugar, utilizaremos la función `str` para conocer la estructura de nuestro conjunto de 
 
-datos, es decir, cuántas observaciones contiene, cuáles variables y de qué tipo son, tal como se
+datos, es decir, cuántas observaciones contiene, cuáles variables y de qué tipo son, tal como se 
 
 observa:
-
 
 
 ```{r str_gapminder, message=FALSE, warning=FALSE,}
@@ -53,6 +51,8 @@ observa:
  str(gapminder)
 
 ```
+
+
 
 
 
@@ -66,6 +66,7 @@ Argentina.
 
 
 
+
 ```{r DT_gapminder, echo=FALSE, message=FALSE, warning=FALSE}
  datatable(gapminder)
 
@@ -73,14 +74,16 @@ Argentina.
 
 
 
+
+
 # **Gráfico paso a paso  ¿Lo hacemos en capas?**
 
 ## **Paso 1: Datos**
 
-Luego de darle un vistazo a los datos, estamos en condiciones de comenzar a graficar:
+Luego de darle un vistazo a los datos, estamos en condiciones de comenzar a graficar, el primer paso es `ggplot(data = gapminder)`:
 
 
-```{r datos_1, echo=FALSE, fig.height=12, fig.show=, fig.width=14, message=FALSE, warning=FALSE}
+```{r datos_1, echo=FALSE,warning=FALSE, fig.height=8, fig.width=10, fig.show="hold" }
 
 # el símbolo '<-' representa asignación, por lo que podemos guardar nuestro gráfico en una variable o directamente ejecutarlo, como lo hicimos anteriormente.
 
@@ -91,18 +94,20 @@ p <- ggplot(data = gapminder)
 
 **Importante**: cada vez que querramos agregar una nueva capa al gráfico utilizamos el operador *+*, 
 
-seguido de la capa deseada (función_geom, labs, theme, etc.)
+seguido de la capa deseada (`función_geom`, `labs`, `theme`, etc.).
+
+
 
 ## **Paso 2: Atributos estéticos**
 
 Elegimos la variable **continent** para relacionarla con el atributo **color**, es decir, 
 
-**color=continent**, por el cual se asignará un color por cada valor distinto de la variable 
+`color=continent`, por el cual se asignará un color por cada valor distinto de la variable 
 
 continente. 
 
 
-```{r atributos_esteticos_2, message=FALSE, warning=FALSE, fig.height=12, fig.width=14, fig.show = "hold"}
+```{r atributos_esteticos_2, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show = "hold"}
 
 p <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp, color=continent))
 p
@@ -110,10 +115,12 @@ p
 
 
 
+
 ## **Paso 3: Función Geom**
 
+Para graficar un **scatter plot** elegimos la función `geom_point`.
 
-```{r funcion_geom_3, message=FALSE, warning=FALSE, fig.height=12, fig.width=14, fig.show = "hold"}
+```{r funcion_geom_3, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show = "hold"}
 
 p + geom_point()
 
@@ -121,14 +128,16 @@ p + geom_point()
 ```
  
 
-En la figura anterior podemos observar la relación existente entre el ingreso bruto per cápita y la 
 
-esperanza de vida de cada país. 
+En la figura anterior podemos observar la relación existente entre el **ingreso bruto per cápita** y la **esperanza de vida** de cada país. 
+ 
+ 
+ 
  
 ## **Paso 4: Sistemas de coordenadas y escalas**
 
 
-```{r coord_escalas_4, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
+```{r coord_escalas_4, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show = "hold"}
 
 # A partir de acá comenzaremos a codear el gráfico completo para que el proceso sea más claro:
 
@@ -138,17 +147,19 @@ esperanza de vida de cada país.
 p <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color = continent))+
   geom_point()+
   coord_cartesian()+
-  scale_x_log10()
+  scale_x_log10(labels= scales::dollar)
  
 p
 ```
 
 
 
+
 ## **Paso 5: Etíquetas y guías** 
 
+Con la capa de `labs` o 'etiquetas' defino **título**, **subtítulo** y **caption** del gráfico. Además, especifico `color= " "` para eliminar el título de la leyenda correspondiente a la variable 'continente' por ser redundante.
 
-```{r etiquetas_5, message=FALSE, warning=FALSE, fig.height=8, fig.width=6,  fig.show = "hold"}
+```{r etiquetas_5, message=FALSE, warning=FALSE, fig.height=8, fig.width=10,  fig.show = "hold"}
 
 
 # p +  labs(x = "Ingreso (GDP) Per Capita", y = "Esperanza de vida en años",
@@ -160,56 +171,77 @@ p
 ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color = continent))+ 
     geom_point()+
     coord_cartesian()+
-    scale_x_log10()+
+    scale_x_log10(labels= scales::dollar)+
    labs(x = "Ingreso (GDP) Per Capita", y = "Esperanza de vida en años",
        title = "Crecimiento económico y esperanza de vida",
        subtitle = "Los puntos se representan por año-país",
-       caption = "DataSource: Gapminder - Link: https://www.gapminder.org")+
+       caption = "DataSource: Gapminder - Link: https://www.gapminder.org", color=" ")+
    guides(color = guide_legend(override.aes = list(size = 5)))
   
-# con la capa de 'labs' o 'etiquetas' agrego título, subtítulo y el caption al gráfico.
+
 # con la capa de 'guides' o 'guía' le asigno formato a las formas (puntos) de la leyenda correspondiente a la variable continente.
 
 ```
 
 
 
+
+
 ## **Paso 6: Paleta de colores**
+
 
 **¿Y si queremos cambiar el color?**
 
-Existen muchas paletas y cada una ofrece diferentes opciones, por ejemplo la paleta ***RColorBrewer*** 
+Existen muchos paquetes de paletas de colores y cada uno ofrece diferentes opciones, por ejemplo el 
 
-ofrece las siguientes:
+paquete **RColorBrewer** ofrece:
 
 
-```{r  paleta_Brewer, message=FALSE, warning=FALSE, fig.height=10, fig.width=12}
+- **Opciones de paletas cualitativas**
+
+```{r paleta_Brewer_cualitativas, message=FALSE, warning=FALSE, fig.height=10, fig.width=12 }
 library(RColorBrewer)
-
-# Todas las opciones
-display.brewer.all()
-
-# Las opciones de paletas cualitativas
 display.brewer.all(type = "qual")
 
 ```
 
 
-### Probamos la opción **Set2**
+- **Opciones de paletas cuantitativas**
+
+```{r  paleta_Brewer_cuantitativas, message=FALSE, warning=FALSE, fig.height=10, fig.width=12}
+
+display.brewer.all(type = "seq")
+```
 
 
-```{r grafico_con_Brewer, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
+- **Opciones de paletas divergentes**
+
+```{r  paleta_Brewer_divergentes, message=FALSE, warning=FALSE, fig.height=10, fig.width=12}
+library(RColorBrewer)
+
+display.brewer.all(type = "div")
+```
+
+
+
+
+
+### Probamos la opción **`Set2`**
+
+Utilizamos la opción `scale_color_brewer(palette="Set2")`.
+
+```{r grafico_con_Brewer, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show = "hold"}
 
 pSet2 <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,
          color= continent))+ 
   geom_point()+
   scale_color_brewer(palette="Set2")+
   coord_cartesian()+
-  scale_x_log10()+
+  scale_x_log10(labels= scales::dollar)+
    labs(x = "Ingreso (GDP) Per Cápita", y = "Esperanza de vida",
        title = "Crecimiento económico y esperanza de vida",
        subtitle = "Los puntos se representan por año-país",
-       caption = "DataSource: Gapminder - Link: https://www.gapminder.org")+
+       caption = "DataSource: Gapminder - Link: https://www.gapminder.org", color=" ")+
    guides(color = guide_legend(override.aes = list(size = 5)))
 
 pSet2
@@ -218,20 +250,21 @@ pSet2
 
 
 
-### Probamos la opción **Dark2**
+### Probamos la opción **`Dark2`**
 
+Utilizamos la opción `scale_color_brewer(palette="Dark2")`.
 
-```{r grafico_con_Brewer_dark2, message=FALSE, warning=FALSE, fig.height=10, fig.width=12,  fig.show = "hold"}
+```{r grafico_con_Brewer_dark2, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show = "hold"}
 
 pdark2 <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color = continent))+ 
   geom_point()+
   scale_color_brewer(palette="Dark2")+
   coord_cartesian()+
-  scale_x_log10()+
+  scale_x_log10(labels= scales::dollar)+
    labs(x = "Ingreso (GDP) Per Cápita", y = "Esperanza de vida",
        title = "Crecimiento económico y esperanza de vida",
        subtitle = "Los puntos se representan por año-país",
-       caption = "DataSource: Gapminder - Link: https://www.gapminder.org")+
+       caption = "DataSource: Gapminder - Link: https://www.gapminder.org", color=" ")+
    guides(color = guide_legend(override.aes = list(size = 5)))
 
 pdark2 
@@ -240,23 +273,26 @@ pdark2
 
 
 
+
 ### ¿Y si queremos trabajar con nuestra propia paleta de colores?
 
+Utilizamos una escala manual de colores mediante la opción `scale_color_manual(values= c("color1", "color2",..., "colorN"), labels= c("nombre1", "nombre2",..., "nombreN"))`, en la misma especificamos los colores elegidos y las etiquetas de cada uno de ellos. 
 
-```{r grafico_colores_propios, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
+```{r grafico_colores_propios, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show = "hold"}
 pmanual <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color =            continent))+ 
     geom_point()+
     scale_color_manual(values = c("#41b6a6", "#f6e37c",   "#f5a26b","#51b8df","#713580"), labels = c("Africa", "América","Asia",  "Europa", "Oceanía"))+
     coord_cartesian()+
-    scale_x_log10()+
+    scale_x_log10(labels= scales::dollar)+
     labs(x = "Ingreso (GDP) Per Cápita", y = "Esperanza de vida",
        title = "Crecimiento económico y esperanza de vida",
        subtitle = "Los puntos se representan por año-país",
-       caption = "DataSource: Gapminder - Link: https://www.gapminder.org")+
+       caption = "DataSource: Gapminder - Link: https://www.gapminder.org", color=" ")+
    guides(color = guide_legend(override.aes = list(size = 5)))
 
 pmanual
 ```
+
 
 
 ## **Paso 7: Temas**
@@ -269,41 +305,24 @@ temas que vienen ya incluidos en ggplot2 como, por ejemplo:
  * `theme_bw()`
  * `theme_minimal()`
  * `theme_dark()`
- * `theme_gray()` 
-
-
-
-```{r tema_classic, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold", tidy=TRUE}
-ptheme <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color =            continent))+ 
-    geom_point()+
-    scale_color_manual(values = c("#41b6a6", "#f6e37c",   "#f5a26b","#51b8df","#713580"), labels = c("Africa", "América","Asia",  "Europa", "Oceanía"))+
-    coord_cartesian()+
-    scale_x_log10()+
-    labs(x = "Ingreso (GDP) Per Cápita", y = "Esperanza de vida",
-       title = "Crecimiento económico y esperanza de vida",
-       subtitle = "Los puntos se representan por año-país",
-       caption = "DataSource: Gapminder - Link: https://www.gapminder.org")+
-   guides(color = guide_legend(override.aes = list(size = 5)))+
-  theme_classic()
+ * `theme_grey()` 
+ * `theme_gray()`
  
-ptheme
-```
 
 
+### Theme_grey
 
-### ¿Probamos otro Theme?
 
-
-```{r thema_bw, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
+```{r thema_bw, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show = "hold"}
 p_theme_bw <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color = continent))+ 
     geom_point()+
     scale_color_manual(values = c("#41b6a6", "#f6e37c",   "#f5a26b","#51b8df","#713580"), labels = c("Africa", "América","Asia",  "Europa", "Oceanía"))+
     coord_cartesian()+
-    scale_x_log10()+
+    scale_x_log10(labels= scales::dollar)+
     labs(x = "Ingreso (GDP) Per Cápita", y = "Esperanza de vida",
        title = "Crecimiento económico y esperanza de vida",
        subtitle = "Los puntos se representan por año-país",
-       caption = "DataSource: Gapminder - Link: https://www.gapminder.org")+
+       caption = "DataSource: Gapminder - Link: https://www.gapminder.org", color=" ")+
    guides(color = guide_legend(override.aes = list(size = 5)))+
   theme_grey()
 
@@ -312,68 +331,50 @@ p_theme_bw
 
 
 
-### ¿Cómo mejoramos la apariencia del gráfico?
+### Theme_classic
 
-
-- Renombrando las **etiquetas** de los valores de la leyenda correspondientes a la variable continente 
-y cambiando su posición.
-
-- Cambiando la apariencia de las etiquetas del eje 'x' mediante la escala **scale_x_log10**.
-
-- Cambiando el tamaño y la fuente de los ejes 'x' e 'y'.
-
-
-## Manos a la obra
-
-
-```{r cambiando_apariencia_1, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
-
-p_refinado <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp, color=continent))+
-  geom_point(size=3,alpha=0.6)+
-  scale_x_log10(labels= scales::dollar)+
-  scale_color_manual(values= c("#41b6a6", "#f6e37c","#f5a26b","#51b8df","#713580"), labels= c("Africa", "America", "Asia","Europa", "Oceanía"))+
-  labs(x="Ingreso (PBI) Per Capita", y="Esperanza de vida en años",
-       title ="Crecimiento económico y esperanza de vida", subtitle ="Los puntos se representan por año-país" , caption = "DataSource: Gapminder- Link: https://www.gapminder.org.", color= '', fill="Población")+
-  guides(color = guide_legend(override.aes = list(size = 5)))+
-  theme_classic()+
-  theme(legend.position="bottom")
+```{r tema_classic, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show = "hold", tidy=TRUE}
+ptheme <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color =            continent))+ 
+    geom_point()+
+    scale_color_manual(values = c("#41b6a6", "#f6e37c",   "#f5a26b","#51b8df","#713580"), labels = c("Africa", "América","Asia",  "Europa", "Oceanía"))+
+    coord_cartesian()+
+    scale_x_log10(labels= scales::dollar)+
+    labs(x = "Ingreso (GDP) Per Cápita", y = "Esperanza de vida",
+       title = "Crecimiento económico y esperanza de vida",
+       subtitle = "Los puntos se representan por año-país",
+       caption = "DataSource: Gapminder - Link: https://www.gapminder.org", color=" ")+
+   guides(color = guide_legend(override.aes = list(size = 5)))+
+  theme_classic()
  
-p_refinado 
+ptheme
 ```
 
 
 
-### Siempre es posible mejorar algún aspecto del gráfico
 
-Ahora vamos a cambiar el color de las etiquetas de la leyenda correspondiente a la variable continente 
-y también le quitaremos el recuadro gris.
+## ¿Cómo customizamos el theme? Manos a la obra.
 
 
-```{r cambiando_apariencia_2, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
-
-
-p_refinado2 <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp, color=continent))+
-  geom_point(size=3,alpha=0.6)+
-  scale_x_log10(labels= scales::dollar)+
-  scale_color_manual(values= c("#41b6a6", "#f6e37c","#f5a26b","#51b8df","#713580"), labels= c("Africa", "America", "Asia","Europa", "Oceanía"))+
-  labs(x="Ingreso (PBI) Per Capita", y="Esperanza de vida en años",
-       title ="Crecimiento económico y esperanza de vida", subtitle ="Los puntos se representan por año-país" , caption = "DataSource: Gapminder- Link: https://www.gapminder.org.", color= " ", alpha=" ")+
-  guides(color = guide_legend(override.aes = list(size = 5)))+
-  theme_light()+
-  theme(legend.position="bottom", legend.key= element_rect(fill="NA"),
-        legend.text= element_text(color="#2c204d", 
-                                  size= 14), 
-        legend.justification = "center")
-p_refinado2
-  
-```
-
-## Customizando el theme.
-
-En el siguiente paso vamos a customizar el theme o tema, para lo cual definiremos dos parámetros 
+En el siguiente paso vamos a customizar el`theme` o tema, para lo cual definiremos dos parámetros 
 
 **text_size** y **margin_size**, que luego utilizaremos para modificar el tamaño del título, subtítulo 
 y leyenda.
+
+- Con `legend.position="bottom"` cambiamos la posición de la leyenda correspondiente a continente, en 
+
+este caso, le indicamos a R que la leyenda estará ubicada en la parte inferior del gráfico.
+
+- Con `legend.key= element_rect(fill='NA')` eliminamos el recuadro gris de las leyendas.
+
+- Con `legend.text= element_text(color="#2c204d", size= text_size)` especificamos el color y el tamaño 
+del texto de la leyenda.
+
+- Con `plot.title= element_text(size = text_size * 1.8, family=Garamond, hjust = 0.5,vjust = 1,colour = "#2c204d", ...)` especificamos el tamaño, fuente, ubicación y color del título.
+
+- Con `plot.subtitle= element_text(size = text_size * 1.3, family=Garamond, hjust = 0.5,vjust = 1,colour = "#2c204d", ...)` especificamos el tamaño, fuente, ubicación y color del título.
+
+- Con `plot.caption= element_text(size = 11,family ="Garamond", hjust = 1, vjust = 1, colour = "#2c204d",...)` especificamos el tamaño, fuente, ubicación y color del título.
+
 
 
 ```{r cambiando_apariencia_3, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
@@ -385,11 +386,10 @@ margin_size <- text_size/2  #de los margenes
 
 pTheme_final <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp, color= continent))+
   geom_point(size=3,alpha=0.6)+
-  #geom_point(aes(color=continent))+
   scale_x_log10(labels= scales::dollar)+
   scale_color_manual(values= c("#41b6a6", "#f6e37c","#f5a26b","#51b8df","#713580"), labels= c("Africa", "America", "Asia","Europa", "Oceanía"))+
   labs(x="Ingreso (PBI) Per Capita", y="Esperanza de vida en años",
-       title ="Crecimiento económico y esperanza de vida", subtitle ="Los puntos se representan por año-país" , caption = "DataSource: Gapminder- Link: https://www.gapminder.org.", color= '', fill="Población")+
+       title ="Crecimiento económico y esperanza de vida", subtitle ="Los puntos se representan por año-país" , caption = "DataSource: Gapminder- Link: https://www.gapminder.org.", color= '')+
   guides(color = guide_legend(override.aes = list(size = 5)))+
   theme_light()+
   theme(legend.position="bottom", legend.key= element_rect(fill='NA'),
@@ -419,13 +419,11 @@ pTheme_final
 ```
 
 
+
 ## **Paso 8- ¿Cómo guardamos lo hecho hasta aquí?**
 
-Utilizamos la sentencia `ggsave`, como argumento le pasamos nombre del gráfico con la extensión 
 
-deseada (png, pdf, svg, entre otras), dimensiones del gráfico(height y widht), unidades (`units` en 
-
-'in' o 'cm') y tipo (`type`)
+Utilizamos la sentencia `ggsave("nombre.extension, height= n, width= n, units=" ", type= ' '")`, como argumento le pasamos el nombre del gráfico con la extensión deseada (png, pdf, svg, entre otras), dimensiones del gráfico con `height` y `width` o con `dpi`y unidades con `units` en "in","cm" o "mm").
 
 ```{r grafico_png, echo=TRUE, message=FALSE, warning=FALSE}
 ggsave(here("grafico_scatterplot1.png"), height = 8, width = 10, units = "in", type='cairo')
@@ -433,9 +431,12 @@ ggsave(here("grafico_scatterplot1.png"), height = 8, width = 10, units = "in", t
 ```
 
 
+
+
 # **Extras**
 
 ## **9- Agregar una nueva capa**
+
 
 El objetivo es agregar al gráfico, una curva suavizada correspondiente a una función de regresión, 
 
@@ -492,14 +493,13 @@ pTheme_final <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp))+
         panel.background = element_rect(fill = "white"),
         panel.grid.major = element_line(color = "gray90", size = 0.5),
         panel.grid.minor = element_line(color = "gray90", size = 0.25))
-
-
 # llamamos al objeto pTheme_final
 pTheme_final
 
 #Guardamos el gráfico 
 ggsave(here("grafico_scatterplot_smooth.png"), height = 8, width = 10, units = "in", type='cairo')
 ```
+
 
 
 
@@ -532,7 +532,9 @@ ggsave(here("grafico_facet.png"), height = 8, width = 10, units = "in", type='ca
 ```
 
 
-## **11- Themes personalizados con el Paquete hrbrthemes**
+
+
+## **11- Themes personalizados con el paquete hrbrthemes**
 
 El paquete [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes) ofrece varias opciones de temas para 
 
@@ -579,6 +581,7 @@ ggsave(here("grafico_facet_ipsum_tw.png"), height = 8, width = 10, units = "in",
 ```
 
 
+
 En cambio, si utilizamos la segunda opción, entonces obtendremos el siguiente gráfico:
 
 
@@ -608,6 +611,8 @@ ggsave(here("grafico_facet_dark.png"), height = 8, width = 10, units = "in", typ
 
 
 
+
+
 ## **12- Gráficos combinados con el Paquete patchwork**
 
 Utilizaremos la librería [patchwork](https://github.com/thomasp85/patchwork)
@@ -617,13 +622,14 @@ pero antes debo generarlos nuevamente sin título, ni subtítulo ni caption, ya 
 
 agrego al unirlos con patchwork.
 
+**Generamos la primer figura**
+
 
 ```{r para_patchwork, message=FALSE, warning=FALSE,fig.height=10, fig.width=12, fig.show="hold"}
 
 text_size <-16   # tamaño base del texto
-margin_size <- text_size/2  #de los margenes
 
-# generamos la primer figura p1
+
 
 p1 <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp))+
   geom_point(aes(color=continent),size=3,alpha=0.6)+
@@ -634,6 +640,85 @@ p1 <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp))+
   labs(x="Ingreso (PBI) Per Capita", y="Esperanza de vida en años",
         color= '')+
   guides(color = guide_legend(override.aes = list(size = 5)))+
+  theme(legend.position="bottom", legend.key= element_rect(fill='NA'),
+        legend.text= element_text(color="#2c204d", size= text_size), 
+        legend.justification = "center",
+        panel.background = element_rect(fill = "white"),
+        panel.grid.major = element_line(color = "gray90", size = 0.5),
+        panel.grid.minor = element_line(color = "gray90", size = 0.25))
+
+p1
+
+```
+
+
+
+**Generamos la segunda figura**
+
+
+
+```{r}
+
+
+p2 <-ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp, color=continent))+
+  geom_point(size=3,alpha=0.6)+
+  scale_x_log10(labels= scales::dollar)+
+  scale_color_manual(values= c("#41b6a6", "#f6e37c","#f5a26b","#51b8df","#713580"), labels= c("Africa", "America", "Asia","Europa", "Oceanía"))+
+  labs(x="", y="Esperanza de vida en años", 
+       color= '')+
+  guides(color = guide_legend(override.aes = list(size = 5)))+
+  theme_ipsum_tw()+
+  theme(legend.position="none", axis.text.y = element_text(size = 12))+
+  # con legend.position="none", elimino las leyendas de continente 
+  facet_wrap(~continent, ncol = 2, scales="free") # 
+p2
+
+ggsave(here("grafico_p2.png"), height = 8, width = 10, units = "in", type='cairo')
+
+```
+
+
+Podemos elegir combinar los dos figuras así:
+
+-  `p1 + p2`, una figura a continuación de la otra
+-  `p1 / p2`, la primer figura en la parte superior y la segunda abajo de esta.
+
+
+```{r combino_graficos, message=FALSE, warning=FALSE, fig.height=12,  fig.width=14, fig.show="hold"}
+library(patchwork)
+
+patchwork <- p1/ p2+         #combino ambos gráficos
+  plot_annotation(title ="Crecimiento económico y esperanza de vida", subtitle ="Los puntos se representan por año-país" , caption = "DataSource: Gapminder- Link: https://www.gapminder.org.") &   
+                  theme (plot.title = element_text(size = 18), plot.subtitle = element_text(size = 14), plot.caption = element_text(size = 14))  
+# agrego título, subtítulo y caption
+# defino el tamaño de las etiquetas
+
+patchwork
+
+### Guardamos el gráfico realizado con patchwork 
+ggsave(here("grafico_patchwork.png"), height = 12, width = 14, units = "in", type='cairo')
+```
+
+
+
+## **13- Gráficos interactivos con Plotly**
+
+```{r para_plotly, message=FALSE, warning=FALSE,include=FALSE, fig.height=6, fig.show="hold", fig.width=8}
+
+#Volvemos a ejecutar el gráfico con asignandole un tamaño menor al título para que quedé mejor en el
+# gráfico interactivo. 
+text_size <-14   # tamaño base del texto
+margin_size <- text_size/2  #de los margenes
+
+pTheme_final <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp, color= continent))+
+  geom_point(size=3,alpha=0.6)+
+  #geom_point(aes(color=continent))+
+  scale_x_log10(labels= scales::dollar)+
+  scale_color_manual(values= c("#41b6a6", "#f6e37c","#f5a26b","#51b8df","#713580"), labels= c("Africa", "America", "Asia","Europa", "Oceanía"))+
+  labs(x="Ingreso (PBI) Per Capita", y="Esperanza de vida en años",
+       title ="Crecimiento económico y esperanza de vida", subtitle ="Los puntos se representan por año-país" , caption = "DataSource: Gapminder- Link: https://www.gapminder.org.", color= '', fill="Población")+
+  guides(color = guide_legend(override.aes = list(size = 5)))+
+  theme_light()+
   theme(legend.position="bottom", legend.key= element_rect(fill='NA'),
         legend.text= element_text(color="#2c204d", 
                                   size= text_size), 
@@ -656,69 +741,37 @@ p1 <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp))+
         panel.background = element_rect(fill = "white"),
         panel.grid.major = element_line(color = "gray90", size = 0.5),
         panel.grid.minor = element_line(color = "gray90", size = 0.25))
-
-p1
-
-# Generamos la segunda figura
-
-p2 <-ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp, color=continent))+
-  geom_point(size=3,alpha=0.6)+
-  scale_x_log10(labels= scales::dollar)+
-  scale_color_manual(values= c("#41b6a6", "#f6e37c","#f5a26b","#51b8df","#713580"), labels= c("Africa", "America", "Asia","Europa", "Oceanía"))+
-  labs(x="", y="Esperanza de vida en años", 
-       color= '')+
-  guides(color = guide_legend(override.aes = list(size = 5)))+
-  theme_ipsum_tw()+
-  theme(legend.position="none", axis.text.y = element_text(size = 12))+
-  # con legend.position="none", elimino las leyendas de continente 
-  facet_wrap(~continent, ncol = 2, scales="free") # 
-p2
-
-ggsave(here("grafico_p2.png"), height = 8, width = 10, units = "in", type='cairo')
-
+pTheme_final
 ```
 
 
-Combinamos los dos últimos gráficos realizados (p1 y p2),
 
-
-
-```{r combino_graficos, message=FALSE, warning=FALSE, fig.height=12,  fig.width=14, fig.show="hold"}
-library(patchwork)
-
-patchwork <- p2 / p1 +                          #combino ambos gráficos
-  plot_annotation(title ="Crecimiento económico y esperanza de vida", subtitle ="Los puntos se representan por año-país" , caption = "DataSource: Gapminder- Link: https://www.gapminder.org.") &   
-                  theme (plot.title = element_text(size = 18), plot.subtitle = element_text(size = 14), plot.caption = element_text(size = 14))  
-# agrego título, subtítulo y caption
-# defino el tamaño de las etiquetas
-
-patchwork
-
-### Guardamos el gráfico realizado con patchwork 
-ggsave(here("grafico_patchwork.png"), height = 12, width = 14, units = "in", type='cairo')
-```
-
-
-## **13- Gráficos interactivos con Plotly**
-
-
-
-```{r graficos_plotly, fig.height=6, fig.show="hold", fig.width=8, message=FALSE, warning=FALSE}
+```{r graficos_plotly,fig.show="hold", fig.height=6,fig.width=8, message=FALSE, warning=FALSE}
 
 # Cargamos la líbreria plotly
 library(plotly)
 # Forma directa de utilizar plotly
 
 ggplotly(pTheme_final)
+
+```
+
+
+```{r graficos_plotly_2,fig.show="hold", fig.height=7,fig.width=8, message=FALSE, warning=FALSE}
 ggplotly(p_facet)
 ggplotly(p_facet_dark)
 ```
 
 
 
-### **Referencias:** 
-* Libro [Socviz](https://socviz.co/) de Kieran Healy
 
-* Workshop dictado por Kieran Healy en la Rstudioconf sobre [Visualizacion de datos](https://github.com/rstudio-conf-2020/dataviz)
+## **Referencias:** 
+
+
+* Libro [Socviz](https://socviz.co/) de Kieran Healy.
+
+* Workshop dictado por Kieran Healy en la Rstudioconf sobre [Visualizacion de datos](https://github.com/rstudio-conf-2020/dataviz).
+
+* Libro [R para ciencia de datos](https://es.r4ds.hadley.nz/) de Hadley Wickham. 
 
 
