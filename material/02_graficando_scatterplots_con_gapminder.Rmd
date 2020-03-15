@@ -19,7 +19,6 @@ output:
 ## **Librerías**
 
 Como ya tenemos instalados los paquetes que utilizaremos, ahora resta decirle a R de manera explícita 
-
 cuáles son los paquetes que queremos usar, en este caso: 
 
 ```{r carga_librerias, echo=TRUE, message=FALSE, warning=FALSE, collapse=FALSE}
@@ -33,16 +32,10 @@ library(DT)
 
 ## Un vistazo al set de datos Gapminder
 
-Antes de empezar a graficar, inspeccionaremos el dataset `gapminder`, el cual es un paquete que 
-
-contiene datos sobre población, expectativa de vida y PIB per cápita de los cinco continentes y sus 
-
+Antes de empezar a graficar, inspeccionaremos el dataset `gapminder`, el cual es un paquete que contiene datos sobre población, expectativa de vida y PIB per cápita de los cinco continentes y sus 
 respectivos países entre los años 1952 y 2007. 
 
-En primer lugar, utilizaremos la función `str` para conocer la estructura de nuestro conjunto de 
-
-datos, es decir, cuántas observaciones contiene, cuáles variables y de qué tipo son, tal como se 
-
+En primer lugar, utilizaremos la función `str` para conocer la estructura de nuestro conjunto de datos, es decir, cuántas observaciones contiene, cuáles variables y de qué tipo son, tal como se 
 observa:
 
 
@@ -57,12 +50,8 @@ observa:
 
 
 En segundo lugar, utilizaremos la función `datatable` del paquete `DT`, la cual mostrará el conjunto 
-
 de datos en el formato de tabla interactiva, la cual nos permite realizadar un recorrido rápido por 
-
-los datos, e incluso buscar algún dato en particular, por ejemplo, los datos correspondientes a 
-
-Argentina.
+los datos, e incluso buscar algún dato en particular, por ejemplo, los datos correspondientes a Argentina.
 
 
 
@@ -93,18 +82,13 @@ p <- ggplot(data = gapminder)
 
 
 **Importante**: cada vez que querramos agregar una nueva capa al gráfico utilizamos el operador *+*, 
-
 seguido de la capa deseada (`función_geom`, `labs`, `theme`, etc.).
 
 
 
 ## **Paso 2: Atributos estéticos**
 
-Elegimos la variable **continent** para relacionarla con el atributo **color**, es decir, 
-
-`color=continent`, por el cual se asignará un color por cada valor distinto de la variable 
-
-continente. 
+Elegimos la variable **continent** para relacionarla con el atributo **color**, es decir, `color=continent`, por el cual se asignará un color por cada valor distinto de la variable continente. 
 
 
 ```{r atributos_esteticos_2, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show = "hold"}
@@ -159,6 +143,7 @@ p
 
 Con la capa de `labs` o 'etiquetas' defino **título**, **subtítulo** y **caption** del gráfico. Además, especifico `color= " "` para eliminar el título de la leyenda correspondiente a la variable 'continente' por ser redundante.
 
+
 ```{r etiquetas_5, message=FALSE, warning=FALSE, fig.height=8, fig.width=10,  fig.show = "hold"}
 
 
@@ -193,7 +178,6 @@ ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color = continen
 **¿Y si queremos cambiar el color?**
 
 Existen muchos paquetes de paletas de colores y cada uno ofrece diferentes opciones, por ejemplo el 
-
 paquete **RColorBrewer** ofrece:
 
 
@@ -299,7 +283,6 @@ pmanual
 
 
 Para cambiar la apariencia del gráfico podemos agregar otra capa con un tema en particular, existen 
-
 temas que vienen ya incluidos en ggplot2 como, por ejemplo:
 
  * `theme_bw()`
@@ -356,18 +339,14 @@ ptheme
 
 
 En el siguiente paso vamos a customizar el`theme` o tema, para lo cual definiremos dos parámetros 
-
-**text_size** y **margin_size**, que luego utilizaremos para modificar el tamaño del título, subtítulo 
-y leyenda.
+**text_size** y **margin_size**, que luego utilizaremos para modificar el tamaño del título, subtítulo y leyenda.
 
 - Con `legend.position="bottom"` cambiamos la posición de la leyenda correspondiente a continente, en 
-
 este caso, le indicamos a R que la leyenda estará ubicada en la parte inferior del gráfico.
 
 - Con `legend.key= element_rect(fill='NA')` eliminamos el recuadro gris de las leyendas.
 
-- Con `legend.text= element_text(color="#2c204d", size= text_size)` especificamos el color y el tamaño 
-del texto de la leyenda.
+- Con `legend.text= element_text(color="#2c204d", size= text_size)` especificamos el color y el tamaño del texto de la leyenda.
 
 - Con `plot.title= element_text(size = text_size * 1.8, family=Garamond, hjust = 0.5,vjust = 1,colour = "#2c204d", ...)` especificamos el tamaño, fuente, ubicación y color del título.
 
@@ -439,9 +418,7 @@ ggsave(here("grafico_scatterplot1.png"), height = 8, width = 10, units = "in", t
 
 
 El objetivo es agregar al gráfico, una curva suavizada correspondiente a una función de regresión, 
-
 entonces vamos a utilizar la funcion geom **geom_smooth**. Entre los métodos a aplicar en dicha 
-
 función tenemos:
 
 * `geom_smooth(method = "gam")`
@@ -450,7 +427,6 @@ función tenemos:
 * `geom_smooth(method = "loess")`
 
 En nuestro caso, utilizaremos la primera opción (`method = "gam"`) y además aprovecharemos este paso 
-
 para customizar la capa del `theme` o tema, así obtendremos el siguiente gráfico:
 
 
@@ -537,7 +513,6 @@ ggsave(here("grafico_facet.png"), height = 8, width = 10, units = "in", type='ca
 ## **11- Themes personalizados con el paquete hrbrthemes**
 
 El paquete [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes) ofrece varias opciones de temas para 
-
 aplicar a un gráfico, algunas son: 
 
 * `theme_ipsum()`
@@ -615,12 +590,7 @@ ggsave(here("grafico_facet_dark.png"), height = 8, width = 10, units = "in", typ
 
 ## **12- Gráficos combinados con el Paquete patchwork**
 
-Utilizaremos la librería [patchwork](https://github.com/thomasp85/patchwork)
-
-para combinar dos gráficos (el gráfico **pTheme_final** con el gráfico facetado **p_facet_ipsum_tw**), 
-pero antes debo generarlos nuevamente sin título, ni subtítulo ni caption, ya que esos elementos los 
-
-agrego al unirlos con patchwork.
+Utilizaremos la librería [patchwork](https://github.com/thomasp85/patchwork) para combinar dos gráficos (el gráfico **pTheme_final** con el gráfico facetado **p_facet_ipsum_tw**),pero antes debo generarlos nuevamente sin título, ni subtítulo ni caption, ya que esos elementos los agrego al unirlos con patchwork.
 
 **Generamos la primer figura**
 
@@ -703,7 +673,7 @@ ggsave(here("grafico_patchwork.png"), height = 12, width = 14, units = "in", typ
 
 ## **13- Gráficos interactivos con Plotly**
 
-```{r para_plotly, message=FALSE, warning=FALSE,include=FALSE, fig.height=6, fig.show="hold", fig.width=8}
+```{r para_plotly, message=FALSE, warning=FALSE,include=FALSE, fig.height=6,fig.width=8, fig.show="hold", fig.width=8}
 
 #Volvemos a ejecutar el gráfico con asignandole un tamaño menor al título para que quedé mejor en el
 # gráfico interactivo. 
@@ -746,7 +716,7 @@ pTheme_final
 
 
 
-```{r graficos_plotly,fig.show="hold", fig.height=6,fig.width=8, message=FALSE, warning=FALSE}
+```{r graficos_plotly,fig.show="hold", fig.height=6, fig.width=9, message=FALSE, warning=FALSE}
 
 # Cargamos la líbreria plotly
 library(plotly)
