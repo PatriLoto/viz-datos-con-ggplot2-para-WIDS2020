@@ -15,23 +15,22 @@ output:
 ---
  
  
-# **Gráfico paso a paso  ¿Lo hacemos en capas?**
-
-## **Paso 0: Librerías**
+## **Librerías**
 
 Como ya tenemos instalados los paquetes que utilizaremos, ahora resta decirle a R de manera explícita 
 
-cuáles son los paquetes que queremos usar, en este caso:   
+cuáles son los paquetes que queremos usar, en este caso: 
 
-```{r carga_librerias, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
- 
-## Load the libraries we will be using
+
+```{r carga_librerias, echo=TRUE, message=FALSE, warning=FALSE}
+
 library(gapminder)
 library(here)
 library(tidyverse)
 library(DT)
 
 ```
+
 
 ## Un vistazo al set de datos Gapminder
 
@@ -48,11 +47,13 @@ datos, es decir, cuántas observaciones contiene, cuáles variables y de qué ti
 observa:
 
 
+
 ```{r str_gapminder, message=FALSE, warning=FALSE,}
 
  str(gapminder)
 
 ```
+
 
 
 En segundo lugar, utilizaremos la función `datatable` del paquete `DT`, la cual mostrará el conjunto 
@@ -71,11 +72,15 @@ Argentina.
 ```
 
 
+
+# **Gráfico paso a paso  ¿Lo hacemos en capas?**
+
 ## **Paso 1: Datos**
 
 Luego de darle un vistazo a los datos, estamos en condiciones de comenzar a graficar:
 
-```{r datos_1, message=FALSE, warning=FALSE, fig.height=12, fig.width=14, fig.show = "hold"}
+
+```{r datos_1, echo=FALSE, fig.height=12, fig.show=, fig.width=14, message=FALSE, warning=FALSE}
 
 # el símbolo '<-' representa asignación, por lo que podemos guardar nuestro gráfico en una variable o directamente ejecutarlo, como lo hicimos anteriormente.
 
@@ -83,11 +88,19 @@ p <- ggplot(data = gapminder)
 
 ```
 
-Importante: cada vez que querramos agregar una nueva capa al gráfico utilizamos el operador *+*, seguido de la capa deseada (función_geom, labs, theme, etc.)
+
+**Importante**: cada vez que querramos agregar una nueva capa al gráfico utilizamos el operador *+*, 
+
+seguido de la capa deseada (función_geom, labs, theme, etc.)
 
 ## **Paso 2: Atributos estéticos**
 
-Elegimos la variable **continent** para relacionarla con el atributo **color**, es decir, **color=continent**, por el cual se asignará un color por cada valor distinto de la variable continente. 
+Elegimos la variable **continent** para relacionarla con el atributo **color**, es decir, 
+
+**color=continent**, por el cual se asignará un color por cada valor distinto de la variable 
+
+continente. 
+
 
 ```{r atributos_esteticos_2, message=FALSE, warning=FALSE, fig.height=12, fig.width=14, fig.show = "hold"}
 
@@ -95,7 +108,10 @@ p <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp, color=cont
 p
 ```
 
+
+
 ## **Paso 3: Función Geom**
+
 
 ```{r funcion_geom_3, message=FALSE, warning=FALSE, fig.height=12, fig.width=14, fig.show = "hold"}
 
@@ -104,9 +120,13 @@ p + geom_point()
 
 ```
  
-En la figura anterior podemos observar la relación existente entre el ingreso bruto per cápita y la esperanza de vida de cada país. 
+
+En la figura anterior podemos observar la relación existente entre el ingreso bruto per cápita y la 
+
+esperanza de vida de cada país. 
  
 ## **Paso 4: Sistemas de coordenadas y escalas**
+
 
 ```{r coord_escalas_4, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
 
@@ -121,15 +141,14 @@ p <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color = con
   scale_x_log10()
  
 p
-
-
 ```
 
 
 
 ## **Paso 5: Etíquetas y guías** 
 
-```{r etiquetas_5, message=FALSE, warning=FALSE, fig.height=10, fig.width=12,  fig.show = "hold"}
+
+```{r etiquetas_5, message=FALSE, warning=FALSE, fig.height=8, fig.width=6,  fig.show = "hold"}
 
 
 # p +  labs(x = "Ingreso (GDP) Per Capita", y = "Esperanza de vida en años",
@@ -153,13 +172,18 @@ ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color = continen
 
 ```
 
+
+
 ## **Paso 6: Paleta de colores**
 
 **¿Y si queremos cambiar el color?**
 
-Existen muchas paletas y cada una ofrece diferentes opciones, por ejemplo la paleta ***RColorBrewer*** ofrece las siguientes:
+Existen muchas paletas y cada una ofrece diferentes opciones, por ejemplo la paleta ***RColorBrewer*** 
 
-```{r  paleta_Brewer, message=FALSE, warning=FALSE, fig.width=4, fig.height=4 }
+ofrece las siguientes:
+
+
+```{r  paleta_Brewer, message=FALSE, warning=FALSE, fig.height=10, fig.width=12}
 library(RColorBrewer)
 
 # Todas las opciones
@@ -170,7 +194,9 @@ display.brewer.all(type = "qual")
 
 ```
 
+
 ### Probamos la opción **Set2**
+
 
 ```{r grafico_con_Brewer, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
 
@@ -191,7 +217,9 @@ pSet2
 ```
 
 
+
 ### Probamos la opción **Dark2**
+
 
 ```{r grafico_con_Brewer_dark2, message=FALSE, warning=FALSE, fig.height=10, fig.width=12,  fig.show = "hold"}
 
@@ -211,7 +239,9 @@ pdark2
 
 
 
+
 ### ¿Y si queremos trabajar con nuestra propia paleta de colores?
+
 
 ```{r grafico_colores_propios, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
 pmanual <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color =            continent))+ 
@@ -228,14 +258,19 @@ pmanual <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color
 pmanual
 ```
 
+
 ## **Paso 7: Temas**
 
-Para cambiar la apariencia del gráfico podemos agregar otra capa con un tema en particular, existen temas que vienen ya incluidos en ggplot2 como, por ejemplo:
+
+Para cambiar la apariencia del gráfico podemos agregar otra capa con un tema en particular, existen 
+
+temas que vienen ya incluidos en ggplot2 como, por ejemplo:
 
  * `theme_bw()`
  * `theme_minimal()`
  * `theme_dark()`
  * `theme_gray()` 
+
 
 
 ```{r tema_classic, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold", tidy=TRUE}
@@ -254,7 +289,10 @@ ptheme <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color 
 ptheme
 ```
 
+
+
 ### ¿Probamos otro Theme?
+
 
 ```{r thema_bw, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
 p_theme_bw <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color = continent))+ 
@@ -276,13 +314,17 @@ p_theme_bw
 
 ### ¿Cómo mejoramos la apariencia del gráfico?
 
-- Renombrando las **etiquetas** de los valores de la leyenda correspondientes a la variable continente y cambiando su posición.
+
+- Renombrando las **etiquetas** de los valores de la leyenda correspondientes a la variable continente 
+y cambiando su posición.
 
 - Cambiando la apariencia de las etiquetas del eje 'x' mediante la escala **scale_x_log10**.
 
 - Cambiando el tamaño y la fuente de los ejes 'x' e 'y'.
 
-### Manos a la obra
+
+## Manos a la obra
+
 
 ```{r cambiando_apariencia_1, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
 
@@ -300,9 +342,12 @@ p_refinado
 ```
 
 
+
 ### Siempre es posible mejorar algún aspecto del gráfico
 
-Ahora vamos a cambiar el color de las etiquetas de la leyenda correspondiente a la variable continente y también le quitaremos el recuadro gris.
+Ahora vamos a cambiar el color de las etiquetas de la leyenda correspondiente a la variable continente 
+y también le quitaremos el recuadro gris.
+
 
 ```{r cambiando_apariencia_2, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
 
@@ -325,7 +370,11 @@ p_refinado2
 
 ## Customizando el theme.
 
-En el siguiente paso vamos a customizar el theme o tema, para lo cual definiremos dos parámetros **text_size** y **margin_size**, que luego utilizaremos para modificar el tamaño del título, subtítulo y leyenda.
+En el siguiente paso vamos a customizar el theme o tema, para lo cual definiremos dos parámetros 
+
+**text_size** y **margin_size**, que luego utilizaremos para modificar el tamaño del título, subtítulo 
+y leyenda.
+
 
 ```{r cambiando_apariencia_3, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
 
@@ -367,30 +416,43 @@ pTheme_final <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp, col
         panel.grid.minor = element_line(color = "gray90", size = 0.25))
 pTheme_final
 
-
 ```
 
 
 ## **Paso 8- ¿Cómo guardamos lo hecho hasta aquí?**
-Utilizamos la sentencia `ggsave`, como argumento le pasamos nombre del gráfico con la extensión deseada (png, pdf, svg, entre otras), dimensiones del gráfico(height y widht), unidades (`units` en 'in' o 'cm') y tipo (`type`)
+
+Utilizamos la sentencia `ggsave`, como argumento le pasamos nombre del gráfico con la extensión 
+
+deseada (png, pdf, svg, entre otras), dimensiones del gráfico(height y widht), unidades (`units` en 
+
+'in' o 'cm') y tipo (`type`)
 
 ```{r grafico_png, echo=TRUE, message=FALSE, warning=FALSE}
 ggsave(here("grafico_scatterplot1.png"), height = 8, width = 10, units = "in", type='cairo')
 
 ```
 
+
 # **Extras**
 
 ## **9- Agregar una nueva capa**
 
-El objetivo es agregar al gráfico, una curva suavizada correspondiente a una función de regresión, entonces vamos a utilizar la funcion geom **geom_smooth**. Entre los métodos a aplicar en dicha función tenemos:
+El objetivo es agregar al gráfico, una curva suavizada correspondiente a una función de regresión, 
+
+entonces vamos a utilizar la funcion geom **geom_smooth**. Entre los métodos a aplicar en dicha 
+
+función tenemos:
 
 * `geom_smooth(method = "gam")`
 * `geom_smooth(method = "lm")`
 * `geom_smooth(method = "glm")`
 * `geom_smooth(method = "loess")`
 
-En nuestro caso, utilizaremos la primera opción (`method = "gam"`) y además aprovecharemos este paso para customizar la capa del `theme` o tema, así obtendremos el siguiente gráfico:
+En nuestro caso, utilizaremos la primera opción (`method = "gam"`) y además aprovecharemos este paso 
+
+para customizar la capa del `theme` o tema, así obtendremos el siguiente gráfico:
+
+
 
 ```{r capa_smooth,  message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
 
@@ -440,9 +502,12 @@ ggsave(here("grafico_scatterplot_smooth.png"), height = 8, width = 10, units = "
 ```
 
 
+
 ## **10- Facetas**
 
 Vamos a separar por columnas con **facet_wrap** teniendo en cuenta la variable **continente**
+
+
 
 ```{r facet_wrap, message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
 
@@ -469,7 +534,9 @@ ggsave(here("grafico_facet.png"), height = 8, width = 10, units = "in", type='ca
 
 ## **11- Themes personalizados con el Paquete hrbrthemes**
 
-El paquete [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes) ofrece varias opciones de temas para aplicar a un gráfico, algunas son: 
+El paquete [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes) ofrece varias opciones de temas para 
+
+aplicar a un gráfico, algunas son: 
 
 * `theme_ipsum()`
 * `theme_ft_rc()`
@@ -478,6 +545,8 @@ El paquete [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes) ofrece varias op
 * `theme_ipsum_tw()`
  
 Utilizaremos la opción `theme_ipsum_tw()`, entonces obtendremos el siguiente gráfico:
+
+
  
 ```{r facet_wrap2, message=FALSE, warning=FALSE,fig.height=10,fig.width=12, fig.show="hold"}
 
@@ -537,10 +606,16 @@ ggsave(here("grafico_facet_dark.png"), height = 8, width = 10, units = "in", typ
 
 ```
 
+
+
 ## **12- Gráficos combinados con el Paquete patchwork**
 
 Utilizaremos la librería [patchwork](https://github.com/thomasp85/patchwork)
-para combinar dos gráficos (el gráfico **pTheme_final** con el gráfico facetado **p_facet_ipsum_tw**), pero antes debo generarlos nuevamente sin título, ni subtítulo ni caption, ya que esos elementos los agrego al unirlos con patchwork.
+
+para combinar dos gráficos (el gráfico **pTheme_final** con el gráfico facetado **p_facet_ipsum_tw**), 
+pero antes debo generarlos nuevamente sin título, ni subtítulo ni caption, ya que esos elementos los 
+
+agrego al unirlos con patchwork.
 
 
 ```{r para_patchwork, message=FALSE, warning=FALSE,fig.height=10, fig.width=12, fig.show="hold"}
@@ -603,7 +678,10 @@ ggsave(here("grafico_p2.png"), height = 8, width = 10, units = "in", type='cairo
 
 ```
 
+
 Combinamos los dos últimos gráficos realizados (p1 y p2),
+
+
 
 ```{r combino_graficos, message=FALSE, warning=FALSE, fig.height=12,  fig.width=14, fig.show="hold"}
 library(patchwork)
@@ -620,15 +698,17 @@ patchwork
 ggsave(here("grafico_patchwork.png"), height = 12, width = 14, units = "in", type='cairo')
 ```
 
+
 ## **13- Gráficos interactivos con Plotly**
 
 
 
-```{r graficos_plotly, fig.height=10, fig.show="hold", fig.width=12, message=FALSE, warning=FALSE}
+```{r graficos_plotly, fig.height=6, fig.show="hold", fig.width=8, message=FALSE, warning=FALSE}
 
+# Cargamos la líbreria plotly
+library(plotly)
 # Forma directa de utilizar plotly
 
-library(plotly)
 ggplotly(pTheme_final)
 ggplotly(p_facet)
 ggplotly(p_facet_dark)
