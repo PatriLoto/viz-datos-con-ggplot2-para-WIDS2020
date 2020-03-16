@@ -6,6 +6,8 @@ date: "05-03-2020"
 output:
    html_document:
      theme: "journal"
+     css: styles.css
+     dev: png
      highlight: "default"
      toc: true
      toc_float: true
