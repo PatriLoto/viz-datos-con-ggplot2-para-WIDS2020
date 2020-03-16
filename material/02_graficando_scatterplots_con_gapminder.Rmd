@@ -69,10 +69,10 @@ los datos, e incluso buscar algún dato en particular, por ejemplo, los datos co
 
 ## **Paso 1: Datos**
 
-Luego de darle un vistazo a los datos, estamos en condiciones de comenzar a graficar, el primer paso es `ggplot(data = gapminder)`:
+Luego de darle un vistazo a los datos, estamos en condiciones de comenzar a graficar, el primer paso es `ggplot(data = gapminder)`.
 
 
-```{r datos_1, echo=FALSE,warning=FALSE, fig.height=8, fig.width=10, fig.show="hold" }
+```{r datos_1, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show="hold" }
 
 # el símbolo '<-' representa asignación, por lo que podemos guardar nuestro gráfico en una variable o directamente ejecutarlo, como lo hicimos anteriormente.
 
@@ -201,7 +201,6 @@ display.brewer.all(type = "seq")
 - **Opciones de paletas divergentes**
 
 ```{r  paleta_Brewer_divergentes, message=FALSE, warning=FALSE, fig.height=10, fig.width=12}
-library(RColorBrewer)
 
 display.brewer.all(type = "div")
 ```
@@ -592,14 +591,13 @@ ggsave(here("grafico_facet_dark.png"), height = 8, width = 10, units = "in", typ
 
 Utilizaremos la librería [patchwork](https://github.com/thomasp85/patchwork) para combinar dos gráficos (el gráfico **pTheme_final** con el gráfico facetado **p_facet_ipsum_tw**),pero antes debo generarlos nuevamente sin título, ni subtítulo ni caption, ya que esos elementos los agrego al unirlos con patchwork.
 
+
 **Generamos la primer figura**
 
 
-```{r para_patchwork, message=FALSE, warning=FALSE,fig.height=10, fig.width=12, fig.show="hold"}
+```{r figura1_patchwork, message=FALSE, warning=FALSE,fig.height=10, fig.width=12, fig.show="hold"}
 
 text_size <-16   # tamaño base del texto
-
-
 
 p1 <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp))+
   geom_point(aes(color=continent),size=3,alpha=0.6)+
@@ -627,7 +625,7 @@ p1
 
 
 
-```{r}
+```{r figura2_patchwork, message=FALSE, warning=FALSE,fig.height=10, fig.width=12, fig.show="hold"}
 
 
 p2 <-ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp, color=continent))+
@@ -657,7 +655,7 @@ Podemos elegir combinar los dos figuras así:
 ```{r combino_graficos, message=FALSE, warning=FALSE, fig.height=12,  fig.width=14, fig.show="hold"}
 library(patchwork)
 
-patchwork <- p1/ p2+         #combino ambos gráficos
+patchwork <- p1/ p2 +         #combino ambos gráficos
   plot_annotation(title ="Crecimiento económico y esperanza de vida", subtitle ="Los puntos se representan por año-país" , caption = "DataSource: Gapminder- Link: https://www.gapminder.org.") &   
                   theme (plot.title = element_text(size = 18), plot.subtitle = element_text(size = 14), plot.caption = element_text(size = 14))  
 # agrego título, subtítulo y caption
@@ -673,7 +671,7 @@ ggsave(here("grafico_patchwork.png"), height = 12, width = 14, units = "in", typ
 
 ## **13- Gráficos interactivos con Plotly**
 
-```{r para_plotly, message=FALSE, warning=FALSE,include=FALSE, fig.height=6,fig.width=8, fig.show="hold", fig.width=8}
+```{r para_plotly, message=FALSE, warning=FALSE,include=FALSE, fig.height=6,fig.width=8, fig.show="hold"}
 
 #Volvemos a ejecutar el gráfico con asignandole un tamaño menor al título para que quedé mejor en el
 # gráfico interactivo. 
@@ -686,7 +684,7 @@ pTheme_final <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp, col
   scale_x_log10(labels= scales::dollar)+
   scale_color_manual(values= c("#41b6a6", "#f6e37c","#f5a26b","#51b8df","#713580"), labels= c("Africa", "America", "Asia","Europa", "Oceanía"))+
   labs(x="Ingreso (PBI) Per Capita", y="Esperanza de vida en años",
-       title ="Crecimiento económico y esperanza de vida", subtitle ="Los puntos se representan por año-país" , caption = "DataSource: Gapminder- Link: https://www.gapminder.org.", color= '', fill="Población")+
+       title ="Crecimiento económico y esperanza de vida", subtitle ="Los puntos se representan por año-país" , caption = "DataSource: Gapminder- Link: https://www.gapminder.org.", color= '')+
   guides(color = guide_legend(override.aes = list(size = 5)))+
   theme_light()+
   theme(legend.position="bottom", legend.key= element_rect(fill='NA'),
@@ -716,21 +714,24 @@ pTheme_final
 
 
 
-```{r graficos_plotly,fig.show="hold", fig.height=6, fig.width=9, message=FALSE, warning=FALSE}
+```{r graficos_plotly,message=FALSE, warning=FALSE, fig.height=6, fig.width=8, fig.show="hold"}
 
 # Cargamos la líbreria plotly
 library(plotly)
 # Forma directa de utilizar plotly
 
-ggplotly(pTheme_final)
+#ggplotly(pTheme_final)
+ggplotly(pTheme_final, tooltip = "text") 
 
 ```
 
 
-```{r graficos_plotly_2,fig.show="hold", fig.height=7,fig.width=8, message=FALSE, warning=FALSE}
+```{r graficos_plotly_2, message=FALSE, warning=FALSE, fig.show="hold", fig.height=8, fig.width=12 }
+library(plotly)
 ggplotly(p_facet)
 ggplotly(p_facet_dark)
 ```
+
 
 
 
