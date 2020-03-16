@@ -5,13 +5,14 @@ author: "Patricia Loto"
 date: "05-03-2020"
 output:
    html_document:
-     dev: png
-     theme: "journal"
-     highlight: "default"
-     toc: true
-     toc_float: true
-     code_folding: hide
-     urlcolor: #713580
+       theme: "journal"
+       css: styles.css
+       dev: png
+       highlight: "default"
+       toc: true
+       toc_float: true
+       code_folding: hide
+       
  
 ---
  
@@ -22,7 +23,7 @@ Como ya tenemos instalados los paquetes que utilizaremos, ahora resta decirle a 
 cuáles son los paquetes que queremos usar, en este caso: 
 
 ```{r carga_librerias, echo=TRUE, message=FALSE, warning=FALSE, collapse=FALSE}
-
+#theme: "journal"  urlcolor: #713580
 library(gapminder)
 library(here)
 library(tidyverse)
@@ -714,19 +715,19 @@ pTheme_final
 
 
 
-```{r graficos_plotly,message=FALSE, warning=FALSE, fig.height=6, fig.width=8, fig.show="hold"}
+```{r graficos_plotly,message=FALSE, warning=FALSE, fig.height=6, fig.width=9, fig.show="hold"}
 
 # Cargamos la líbreria plotly
 library(plotly)
 # Forma directa de utilizar plotly
 
 #ggplotly(pTheme_final)
-ggplotly(pTheme_final, tooltip = "text") 
+ggplotly(pTheme_final, hoverinfo = "all") 
 
 ```
 
 
-```{r graficos_plotly_2, message=FALSE, warning=FALSE, fig.show="hold", fig.height=8, fig.width=12 }
+```{r graficos_plotly_2, message=FALSE, warning=FALSE, fig.show="hold", fig.height=8, fig.width=9.5 }
 library(plotly)
 ggplotly(p_facet)
 ggplotly(p_facet_dark)
@@ -736,7 +737,7 @@ ggplotly(p_facet_dark)
 
 
 
-## **Referencias:** 
+## **Referencias** 
 
 
 * Libro [Socviz](https://socviz.co/) de Kieran Healy.
