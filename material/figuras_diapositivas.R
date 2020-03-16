@@ -1,3 +1,9 @@
+library(ggplot2)
+library(datos)
+library(here)
+library(hrbrthemes)
+
+
 #-------------------------------------------------------------------
 # Sección ¿Qué hay detrás de un gráfico?
 #-------------------------------------------------------------------
@@ -69,6 +75,28 @@ p_facet
 ggsave(here("grafico_facet.png"), height = 6, width = 8, units = "in", type='cairo')
 
 #-------------------------------------------------------------------
+# Sección Sistemas de coordenadas
+#-------------------------------------------------------------------
+# Cartesianas y polares
+
+barchart <- ggplot(data = diamantes) +
+  geom_bar(
+    mapping = aes(x = corte, fill = corte),
+    show.legend = FALSE,
+    width = 1) +
+  scale_fill_manual(values = c("#9ccfb1","#f5a26b","#e84052","#51b8df", "#41b6a6"))+
+  theme_ipsum_tw()+
+  theme(aspect.ratio = 1) +
+  labs(x = NULL, y = NULL)
+barchart
+barchart + coord_flip()
+
+ggsave(here("grafico_barra4.png"), height = 4, width = 5, units = "in", type='cairo')
+# coordenadas polares
+barchart + coord_polar()
+ggsave(here("grafico_polar4.png"), height = 4, width = 4, units = "in", type='cairo')
+
+#-------------------------------------------------------------------
 # Sección Función geom
 #-------------------------------------------------------------------
 ggsave(here("grafico_geom_blank.png"), height = 3, width = 4, units = "in", type='cairo')
@@ -77,7 +105,7 @@ library(hrbrthemes)
 hrbrthemes::import_plex_sans()
 
 p1 <- ggplot(iris, 
-             aes(Species, Sepal.Width))
+             mapping=aes(Species, Sepal.Width))
 
 # función geom_point
 p1 + geom_point() + theme_ipsum_ps()
@@ -93,6 +121,18 @@ geom_violin
 p1 + geom_violin()+ theme_ipsum_ps()
 ggsave(here("grafico_geom_violin2.png"), height = 3, width = 4, units = "in", type='cairo')
 
+#
+bar <- ggplot(data = diamantes) +
+  geom_bar(
+    mapping = aes(x = corte, fill = corte),
+    show.legend = FALSE,
+    width = 1
+  ) +
+  theme(aspect.ratio = 1) +
+  labs(x = NULL, y = NULL)
+
+bar + coord_flip()
+bar + coord_polar()
 
 #-------------------------------------------------------------------
 # Sección Themes o Temas
