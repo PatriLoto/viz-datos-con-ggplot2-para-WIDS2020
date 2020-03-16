@@ -119,7 +119,8 @@ Para profundizar en el tema de la visualización de datos.
 ### Sitios Webs sobre visualización.
 
 * [The R graph Gallery](https://www.r-graph-gallery.com/)
-* Highcharter
+* [Highcharter](http://jkunst.com/highcharter/)
+* [From Data to Viz](https://www.data-to-viz.com/)
 
 ### Blogs.
 
