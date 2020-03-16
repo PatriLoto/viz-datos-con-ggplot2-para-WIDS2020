@@ -61,5 +61,5 @@ option:hover {
 
 /*Hover table row*/
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
-    background-color: #d0ecfa!important;
+    background-color: #9ccfb1;!important;
 }
