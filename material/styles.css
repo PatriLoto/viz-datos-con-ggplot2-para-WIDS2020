@@ -7,24 +7,28 @@
 
 body{
   font-family: 'Lato';
-  font-size: 16pt;
+  font-size: 14pt;
 }
 /* Headers */
-h1,h2,h3,h4,h5,h6{
+h1{
   font-size: 18pt;
 }
 
+/* Headers */
+h2,h3,h4,h5,h6{
+  font-size: 16pt;
+}
 /*Colour hyperlinks*/
 a {
-  color: #70c9d0;
+  color: #41b6a6; 
 }
 
 a:hover {
-  color: #b0e0e6;
+  color: #9ccfb1;
 }
 
 a:active {
-  color: #b0e0e6;
+  color: #9ccfb1;
 }
 
 /*Header*/
@@ -36,23 +40,23 @@ h2 {
 
 /* Search Box*/
 input[type=search]:focus {
-    border-color: #b0e0e6;
+    border-color: #9ccfb1;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px #b0e0e6,0 0 8px #b0e0e6;
-    box-shadow: inset 0 1px 1px #b0e0e6,0 0 8px #b0e0e6;
+    -webkit-box-shadow: inset 0 1px 1px #9ccfb1;,0 0 8px #9ccfb1;;
+    box-shadow: inset 0 1px 1px #9ccfb1;,0 0 8px #9ccfb1;;
 }
 
 /*Select box*/
 select:focus {
-    border-color: #b0e0e6;
+    border-color: #9ccfb1;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px #b0e0e6,0 0 8px #b0e0e6;
-    box-shadow: inset 0 1px 1px  #b0e0e6,0 0 8px #b0e0e6;
+    -webkit-box-shadow: inset 0 1px 1px #9ccfb1;,0 0 8px #9ccfb1;;
+    box-shadow: inset 0 1px 1px  #9ccfb1;,0 0 8px #9ccfb1;;
 }
 
 /*Select options - currently not working*/
 option:hover {
-  background-color: #b0e0e6!important
+  background-color: #9ccfb1;!important
 }
 
 /*Hover table row*/
