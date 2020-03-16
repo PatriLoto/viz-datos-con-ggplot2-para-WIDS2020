@@ -57,7 +57,7 @@ los datos, e incluso buscar algún dato en particular, por ejemplo, los datos co
 
 
 
-```{r DT_gapminder, echo=FALSE, message=FALSE, warning=FALSE}
+```{r DT_gapminder, echo=TRUE, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show = "hold"}
  datatable(gapminder)
 
 ```
