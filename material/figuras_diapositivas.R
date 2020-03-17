@@ -90,8 +90,8 @@ barchart <- ggplot(data = diamantes) +
   labs(x = NULL, y = NULL)
 barchart
 barchart + coord_flip()
-
 ggsave(here("grafico_barra4.png"), height = 4, width = 5, units = "in", type='cairo')
+
 # coordenadas polares
 barchart + coord_polar()
 ggsave(here("grafico_polar4.png"), height = 4, width = 4, units = "in", type='cairo')
