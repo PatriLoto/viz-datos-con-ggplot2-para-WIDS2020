@@ -72,7 +72,9 @@ easypackages::libraries("tidyverse", "gapminder","babynames","survey","socviz","
 
 
 ## :writing_hand: Slides y Código  
- Pronto se subirá todo el material a este repositorio.
+
+Tanto la [presentación](https://github.com/PatriLoto/viz-datos-con-ggplot2-para-WIDS2020/blob/master/material/PRESENTACION_WIDS2020.pdf) como los [archivos rmarkdown](https://github.com/PatriLoto/viz-datos-con-ggplot2-para-WIDS2020/blob/master/material) se encuentran en la carpeta **Material**. 
+ 
 
 ## :notebook: **Bibliografía** 
 
