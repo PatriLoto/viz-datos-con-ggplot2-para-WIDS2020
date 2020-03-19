@@ -32,8 +32,7 @@ Lo primero que debemos hacer es cargar las librerías que utilizaremos:
 library(tidyverse)
 library(here)
 library (DT)
-# library(ggtext)
-# install.packages("ggtext")
+library(ggtext)
 ```
 
 # Dataset
