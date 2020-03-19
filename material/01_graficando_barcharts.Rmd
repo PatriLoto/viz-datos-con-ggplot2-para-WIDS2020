@@ -26,6 +26,7 @@ Lo primero que debemos hacer es cargar las librerías que utilizaremos:
 * [tidyverse](https://www.tidyverse.org/)
 * [here](https://here.r-lib.org/)
 * [DT](https://rstudio.github.io/DT/)
+* [ggtext](https://github.com/wilkelab/ggtext)
 
 ```{r librerias, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -109,7 +110,7 @@ Si no deseas un gráfico de barras contiguas(“dodge”), puedes usar una de la
 
 ### Gráfico de barras apiladas con la opción **position_stack**
 
-```{r position_stack, echo=TRUE, fig.align='center', fig.height=5, fig.width=8, message=FALSE, warning=FALSE}
+```{r position_stack, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
 ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
   geom_bar(stat = "identity", position= position_stack(), color="black")
  
@@ -206,15 +207,16 @@ A continuación, modificaremos el color y el tamaño tanto del título como de l
 
 * `theme(legend.position = "left"`
 * `theme(legend.position = "top")`
-* ` theme(legend.position = "bottom")`
+* `theme(legend.position = "bottom")`
 
 
 
-```{r theme_bw, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE, highlight=TRUE, tidy=TRUE}
+```{r theme_bw, echo=TRUE, fig.align='center', fig.height=8, fig.width=6, message=FALSE, warning=FALSE, highlight=TRUE, tidy=TRUE}
+
 ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
   geom_bar(stat = "identity", position=position_dodge(), 
            widht=.3, color="#2c204d")+
-  scale_fill_manual(values=c("#713580", "#41b6a6"), labels=c('Femenino','Masculino'))+
+  scale_fill_manual(values=c("#713580", "#41b6a6"), labels=c('Mujeres','Hombres'))+
   scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena"))+
   scale_y_continuous(labels = scales::dollar)+
   labs(x=" ", y="Propina", title="¿Quién da más propina?", fill=' ')+ 
@@ -240,9 +242,41 @@ ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
 Guardamos la figura obtenida en formato png y definimos la dimensión de la misma, asignando valores a los parámetros **height** (altura) y **width** (ancho).
 
 ```{r grafico_png, echo=TRUE, fig.align='center', fig.height=8, fig.width=6, message=FALSE, warning=FALSE, highlight=TRUE, tidy=TRUE}
-ggsave(here("grafico_barchart2.png"), height = 8, width = 10, units = "in", type='cairo')
+ggsave(here("grafico_barchart2.png"), height = 8, width = 6, units = "in", type='cairo')
 
 ```
+
+En lugar de utilizar las leyendas, es posible agregarle un subtítulo a la figura donde la palabra hombres esté en verde y mujeres en lila. Para esto necesitamos el paquete ggtext.
+
+```{r grafico_ggtext ,echo=TRUE, fig.align='center', fig.height=8, fig.width=6, message=FALSE, warning=FALSE, highlight=TRUE, tidy=TRUE   }
+
+ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
+  geom_bar(stat = "identity", position=position_dodge(), 
+           widht=.3, color="#2c204d")+
+  scale_fill_manual(values=c("#713580", "#41b6a6"), labels=c('Mujeres','Hombres'))+
+  scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena"))+
+  scale_y_continuous(labels = scales::dollar)+
+  labs(x=" ", y="Propina", title="¿Quién da más propina?",
+       subtitle = "¿<span style='color:#41b6a6'>Hombres</span> o <span  style='color:#713580'> Mujeres</span>?")+ 
+  theme_classic()+ 
+  theme(text = element_text(size=14, face = 'bold', color = "#2c204d"),
+         plot.title = element_text(size=18,            #cambiamos el tamaño, fuente y color del título
+                                   family ="Garamond",    
+                              hjust = 0.5,vjust = 1,
+                              colour = "#2c204d", 
+                              face = 'bold', 
+                              margin = margin(b = 12 * 1.2)),
+         plot.subtitle = element_markdown(hjust = 0.5,vjust = 1),
+         legend.position="none",legend.text= element_text(color="#2c204d", 
+         size= 12, hjust = 0.5,vjust = 1,
+         family ="Garamond")) #cambiamos tamaño, fuente y color de la leyenda      
+
+
+ggsave(here("grafico_ggtext.png"), height = 8, width = 6, units = "in", type='cairo')
+
+
+```
+
 
 
 
