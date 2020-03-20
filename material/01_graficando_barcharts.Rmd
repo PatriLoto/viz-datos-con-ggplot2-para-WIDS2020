@@ -36,24 +36,23 @@ library (DT)
 library(ggtext)
 ```
 
-# Dataset
+# Set de datos
 
 Trabajaremos con un dataframe formado por las siguientes variables: 'sex', 'time' y 'total_bill', el cual contiene datos de propinas entregadas en diferentes momentos del día.
 
 
-```{r subset_ejemplo, echo=FALSE, message=FALSE, warning=FALSE}
+```{r subset_ejemplo, message=FALSE, warning=FALSE, include=FALSE}
 subset_propina<- data.frame(
  sex = factor(c("Female","Female","Male","Male")),
   time = factor(c("Lunch","Dinner","Lunch","Dinner"), levels=c("Lunch","Dinner")),
   total_bill = c(13.53, 16.81, 16.24, 17.42))
 
-# Mostramos el dataset en formato de tabla interactiva con el paquete 'DT'
-datatable(subset_propina, rownames = FALSE, options = list(
-  columnDefs = list(list(className = 'dt-center'))))
 ```
 
 
 ## Estructura del dataset
+
+En primer lugar, utilizaremos la función `str` para conocer la estructura de nuestro conjunto de datos, es decir, cuántas observaciones contiene, cuáles variables y de qué tipo son.
 
 ```{r estructura_dataset, message=FALSE, warning=FALSE, paged.print=TRUE}
 str(subset_propina)
@@ -61,39 +60,77 @@ str(subset_propina)
 
 
 
+Para poder observar qué datos contiene, utilizaremos la función `View`
+
+
+```{r datos_con_DT, echo=FALSE, message=FALSE, warning=FALSE}
+
+print(subset_propina)
+# datatable(subset_propina, rownames = FALSE, options = list(
+#   columnDefs = list(list(className = 'dt-center'))))
+```
+
 
 
 # ¿Comenzamos?
 
-Antes de comenzar, recuerda que ggplot2 está basado en la **Grámatica de gráficos en capas**, por lo que, cada gráfico se contruyen en base a capas. Y no olvides que los principales elementos para construir un gráfico son:
+Antes de comenzar, recuerda que ggplot2 está basado en la **Grámatica de gráficos en capas**, por lo que, cada gráfico se contruyen en base a capas. Tampoco olvides que todo objeto de ggplot2 tiene al menos 3 componentes principales:
 
-* Datos
+* Datos(data): nuestro set de datos.
 
-* Atributos estéticos
+* Atributos estéticos(aes): un conjunto de mapeos estéticos entre las variables de nuestro set de datos y las propiedades visuales (tamaño, forma, etc.)
 
-* Función Geom ()
+* Capas(layers): al menos una capa que describe cómo representar cada observación, usualmente creada con una **función geom**. Además cada capa puede tener una transformación estadística stat una posición y opcionalmente un conjunto de mapeos estéticos
 
 # Gráfico de barras paso a paso
 
-## **Datos**
+## **1. Datos**
 
-```{r datos, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
+El primer argumento es el conjunto de datos. Al correr `data = subset_propina`, obtendremos un gráfico vacío.
+
+```{r datos, echo=TRUE,message=FALSE, warning=FALSE, fig.height=6, fig.width=8, fig.align='center', fig.show = "hold"}
+
+ggplot(data=subset_propina)
+```
+
+
+## **2. Atributos estéticos**
+
+
+Mediante el **mapeo** o **mapping** le decimos a ggplot cuáles son las variables que queremos representar mediante propiedades visuales (tamaño, color, etc.). Elegimos las variables **time**, **total_bill** y **sex**, donde la primera estará asignada a 'x', la segunda a 'y' y la última al atributo `fill`, por el cual se asignará un color de relleno por cada valor distinto de la variable sexo. 
+
+
+```{r atributos_esteticos, echo=TRUE,message=FALSE, warning=FALSE, fig.height=6, fig.width=8, fig.align='center', fig.show = "hold"}
 
 ggplot(data=subset_propina, mapping = aes(x=time, y=total_bill, fill=sex))
+
 ```
 
-## **Función Geom**
 
-En este caso, elegimos la función **geom_bar()** con la opción **stat="identity"**, la misma nos permite asignar la altura de las barras a los valores brutos de la variable 'y', así obtenemos el siguiente gráfico: 
- 
+
+## **3. Función Geom**
+
+ggplot2 incluye muchas funciones geom, en este caso, elegimos la función **geom_bar()**, la cual tiene varios argumentos como `mapping = NULL,`
+`data = NULL`, `stat = "count"`, `position = "stack"` entre otros. Nosotros, utilizaremos la opción `stat="identity"`, la cual nos permite relacionar la altura de las barras con los valores brutos de la variable 'y', y la opción `position = "stack"`, con la cual le decimos a ggplot que utilizaremos barras del tipo apiladas.
+
 
 ```{r funcion_geom, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
-ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
-  geom_bar(stat="identity")
+
+ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex)) +
+  geom_bar(stat="identity",position = "stack")
+
 ```
 
 
+## Tipos de barras
 
+Si no deseas un gráfico de barras apiladas podes usar una de las otras tres opciones, `position= identity`(identidad), `position= dodge` (contiguas) o `position= fill`(llenar).
+
+
+**"identity"** (identidad), **“dodge”** (contiguas), o **"fill"** (llenar).
+
+
+Si no deseas un gráfico de barras contiguas(“dodge”), puedes usar una de las otras tres opciones: **"identity"** (identidad), **"stack"** (apilar) o **"fill"** (llenar).
 ### Gráfico de barras contiguas
 
 ```{r barchart_dodge, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
@@ -103,16 +140,11 @@ ggplot(data=subset_propina,aes(x=time, y=total_bill, fill=sex))+
 ```
 
 
-
-Si no deseas un gráfico de barras contiguas(“dodge”), puedes usar una de las otras tres opciones: **"identity"** (identidad), **"stack"** (apilar) o **"fill"** (llenar).
-
-
-
 ### Gráfico de barras apiladas con la opción **position_stack**
 
 ```{r position_stack, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
 ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
-  geom_bar(stat = "identity", position= position_stack(), color="black")
+  geom_bar(stat = "identity", position= position_stack())
  
 ```
 
@@ -246,7 +278,17 @@ ggsave(here("grafico_barchart2.png"), height = 8, width = 6, units = "in", type=
 
 ```
 
-En lugar de utilizar las leyendas, es posible agregarle un subtítulo a la figura donde la palabra hombres esté en verde y mujeres en lila. Para esto necesitamos el paquete ggtext.
+
+
+#Extras
+
+## El paquete **ggtext**
+
+
+El paquete `ggtext` permite extender las funcionalidades de ggplot2, mediante la customización de títulos, subtítulos, anotaciones, etc. A continuación, en lugar  de utilizar una leyenda para especificar los valores de la variable `sex`, es posible agregar a la figura un subtítulo  donde la palabra 'Hombres' esté en verde y 'Mujeres' en lila para diferenciar los valores posibles de dicha variable, tal como se observa en el siguiente ejemplo: 
+
+
+
 
 ```{r grafico_ggtext ,echo=TRUE, fig.align='center', fig.height=8, fig.width=6, message=FALSE, warning=FALSE, highlight=TRUE, tidy=TRUE   }
 
