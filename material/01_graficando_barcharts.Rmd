@@ -31,7 +31,6 @@ Lo primero que debemos hacer es cargar las librerías que utilizaremos:
 
 library(tidyverse)
 library(here)
-library (DT)
 library(ggtext)
 ```
 
@@ -158,7 +157,7 @@ ggplot(data= subset_propina,aes(x= time, y= total_bill, fill= sex))+
 
 
 
-```{r position_fill, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=8}
+```{r position_fill, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=8, fig.show = "hold"}
 ggplot(data= subset_propina, aes(x= time, y= total_bill, fill= sex))+
        geom_bar(stat = "identity", position= "fill", width= .7, color= "black")
 
@@ -182,7 +181,7 @@ Para renombrar los valores del eje x, correspondientes a **'Lunch'** y **'Dinner
 
 
 
-```{r coord_escalas_4, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=8}
+```{r coord_escalas_4, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=8, fig.show = "hold"}
 
 ggplot(data= subset_propina, aes(x= time, y= total_bill, fill= sex))+
        geom_bar(stat = "identity", position= "dodge", width= .7, color= "black")+
@@ -203,7 +202,7 @@ Para cambiar la etiqueta de los ejes **'x'** e **'y'** y para agregar título, s
 
 
 
-```{r etiquetas_x_y, message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8}
+```{r etiquetas_x_y, message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8,  fig.show = "hold"}
 
 ggplot(data= subset_propina, aes(x= time, y= total_bill, fill= sex))+
        geom_bar(stat = "identity", position= "dodge", width= .7, color= "black")+
@@ -223,7 +222,7 @@ ggplot(data= subset_propina, aes(x= time, y= total_bill, fill= sex))+
 En el siguiente gráfico vamos a cambiar el color de relleno de las barras  utilizando una escala manual, para lo cual es necesario agregar una capa: **scale_fill_manual**, en donde definiremos los colores de cada valor de la variable 'sex' y las etiquetas de cada uno.
 
 
-```{r color,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8}
+```{r color,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8,  fig.show = "hold"}
 
 ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex)) +
        geom_bar(stat = "identity", position= "dodge", width= .7, color= "black") +
@@ -243,7 +242,7 @@ ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex)) +
 
 Vamos a utilizar uno de los themes clásicos que trae ggplot2, y vamos a aprovechar para cambiar la presentación de los valores del eje 'y'.
 
-```{r theme_classic,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8}
+```{r theme_classic,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, fig.show = "hold"}
 ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex))+
        geom_bar(stat = "identity", position= "dodge", width = .7, color= "black")+
        scale_fill_manual(values= c("#713580", "#41b6a6"), labels= c('Mujeres', 'Hombres'))+
@@ -268,7 +267,7 @@ A continuación, modificaremos el color y el tamaño tanto del título como de l
 
 
 
-```{r theme_bw,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=8, fig.width=6, tidy=TRUE}
+```{r theme_bw,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8,  fig.show = "hold", tidy=TRUE}
 
 ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex))+
        geom_bar(stat = "identity", position= "dodge", 
@@ -300,7 +299,7 @@ ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex))+
 
 Guardamos la figura obtenida en formato png y definimos la dimensión de la misma, asignando valores a los parámetros **height** (altura) y **width** (ancho).
 
-```{r grafico_png,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=8, fig.width=6, highlight=TRUE, tidy=TRUE}
+```{r grafico_png,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, highlight=TRUE,  fig.show = "hold", tidy=TRUE}
 ggsave(here("grafico_barchart2.png"), height = 8, width = 6, units = "in", type= 'cairo')
 
 ```
@@ -318,7 +317,7 @@ El paquete `ggtext` permite extender las funcionalidades de ggplot2, mediante la
 
 
 
-```{r grafico_ggtext ,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=8, fig.width=6, highlight=TRUE, tidy=TRUE}
+```{r grafico_ggtext ,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8,  fig.show = "hold", highlight=TRUE, tidy=TRUE}
 
 ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex))+
        geom_bar(stat = "identity", position="dodge", 
