@@ -54,16 +54,16 @@ subset_propina<- data.frame(
 
 En primer lugar, utilizaremos la función `str` para conocer la estructura de nuestro conjunto de datos, es decir, cuántas observaciones contiene, cuáles variables y de qué tipo son.
 
-```{r estructura_dataset, message=FALSE, warning=FALSE, paged.print=TRUE}
+```{r estructura_dataset, message=FALSE, warning=FALSE}
 str(subset_propina)
 ```
 
 
 
-Para poder observar qué datos contiene, utilizaremos la función `View`
+Para poder observar qué datos contiene, utilizaremos la función `print`
 
 
-```{r datos_con_DT, echo=FALSE, message=FALSE, warning=FALSE}
+```{r datos_con_DT, message=FALSE, warning=FALSE}
 
 print(subset_propina)
 # datatable(subset_propina, rownames = FALSE, options = list(
@@ -110,113 +110,116 @@ ggplot(data=subset_propina, mapping = aes(x=time, y=total_bill, fill=sex))
 
 ## **3. Función Geom**
 
-ggplot2 incluye muchas funciones geom, en este caso, elegimos la función **geom_bar()**, la cual tiene varios argumentos como `mapping = NULL,`
-`data = NULL`, `stat = "count"`, `position = "stack"` entre otros. Nosotros, utilizaremos la opción `stat="identity"`, la cual nos permite relacionar la altura de las barras con los valores brutos de la variable 'y', y la opción `position = "stack"`, con la cual le decimos a ggplot que utilizaremos barras del tipo apiladas.
+ggplot2 incluye muchas funciones geom, en este caso, elegimos la función **geom_bar()**, la cual tiene varios argumentos como `mapping`
+`data`, `stat`, `position` aes como `width` y `color`, entre otros. Nosotros, utilizaremos la opción `stat="identity"`, la cual nos permite relacionar la altura de las barras con los valores brutos de la variable 'y', y la opción `position = "stack"`, con la cual le decimos a ggplot que utilizaremos barras del tipo apiladas.
 
 
 ```{r funcion_geom, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
 
 ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex)) +
-  geom_bar(stat="identity",position = "stack")
+  geom_bar(stat="identity", position = "stack", width=.7, color="black")
 
 ```
 
 
-## Tipos de barras
 
-Si no deseas un gráfico de barras apiladas podes usar una de las otras tres opciones, `position= identity`(identidad), `position= dodge` (contiguas) o `position= fill`(llenar).
+
+### Tipos de barras
+
+
+Si no deseas un gráfico de barras apiladas puedes usar alguna de las otras tres opciones, `position= identity`(identidad), `position= dodge` (contiguas) o `position= fill`(llenar).
 
 
 **"identity"** (identidad), **“dodge”** (contiguas), o **"fill"** (llenar).
 
 
-Si no deseas un gráfico de barras contiguas(“dodge”), puedes usar una de las otras tres opciones: **"identity"** (identidad), **"stack"** (apilar) o **"fill"** (llenar).
-### Gráfico de barras contiguas
+ - a. Gráfico de barras contiguas
+
+
 
 ```{r barchart_dodge, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
 # 1.2 gráfico de barras contiguas - dodge
 ggplot(data=subset_propina,aes(x=time, y=total_bill, fill=sex))+
-  geom_bar(stat="identity", position= position_dodge())
+  geom_bar(stat="identity", position= position_dodge(),  width=.7, color="black")
 ```
 
 
-### Gráfico de barras apiladas con la opción **position_stack**
-
-```{r position_stack, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
-ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
-  geom_bar(stat = "identity", position= position_stack())
- 
-```
 
 
-### Gráfico de barras llenas con la opción **position_fill**
+  - b. Gráfico de barras llenas con la opción **position_fill**
+
+
 
 ```{r position_fill, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
 ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
-  geom_bar(stat = "identity", position=position_fill())
+  geom_bar(stat = "identity", position=position_fill(), width=.7, color="black")
 
 ```
-
 
 
 
 
 Finalmente, elijo la opción **position = "dodge"** ya que es más fácil comparar valores individuales cuando las barras están ubicadas una al lado de la otra.
 
-## ¿Cómo cambiamos el **color** de las barras?
-
-En el siguiente gráfico vamos a cambiar el color de relleno de las barras  utilizando una escala manual, para lo cual es necesario agregar una capa: **scale_fill_manual**, en donde definiremos los colores de cada valor.
 
 
-```{r color, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
-# 1.4 Cambiamos los colores de las barras:"#713580", "#41b6a6" 
+## **Paso 4: Sistemas de coordenadas y escalas**
+
+
+Para renombrar los valores del eje x, correspondientes a 'Lunch' y 'Dinner', utilizamos la siguiente capa: 
+
+`scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena")`
+
+
+```{r coord_escalas_4, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
 ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
-  geom_bar(stat="identity", position=position_dodge()) +
-  scale_fill_manual(values=c("#713580", "#41b6a6")) 
+  geom_bar(stat = "identity", position=position_dodge(), width=.7, color="black")+
+  scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena"))+
+  scale_y_continuous(labels = scales::dollar)+
+  coord_cartesian()  
 ```
 
 
 
+## **Paso 5: Etíquetas y guías** 
 
-### ¿Qué cambio observas en el gráfico?
-
-```{r borde_negro, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
-# 1.3 cambiamos el color de la línea de borde de cada barra
-ggplot(data=subset_propina, aes(x=time,   y=total_bill, fill=sex))+
-  geom_bar(stat="identity", position = position_dodge(), color="black")+
-  scale_fill_manual(values=c("#713580", "#41b6a6")) 
-```
-
-
-
-
-## **Etiquetas**
 
 Para cambiar el nombre de los ejes 'x' e 'y' utilizamos la capa **labs**, donde podemos especificar los nombres o etiquetas del eje 'x' e 'y', del título, subtítulo, etc. Por ahora, vamos a renombrar al eje 'y', eliminaremos el eje 'x'y agregaremos un título y subtítulo al gráfico.
 
+
+
 ```{r etiquetas_x_y, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
 ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex))+
-  geom_bar(stat = "identity", position= position_dodge(), color= "black")+
-  scale_fill_manual(values= c("#713580", "#41b6a6"))+
+  geom_bar(stat = "identity", position= position_dodge(), width=.7, color= "black")+
+  scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena"))+
+  scale_y_continuous(labels = scales::dollar)+
+  coord_cartesian() + 
   labs(x= "", y= "Propina", title= "¿Quién da más propina?", subtitle = "¿Hombres o Mujeres?")
  
 ```
 
 
 
-Para renombrar los valores del eje x, correspondientes a 'Lunch' y 'Dinner', utilizamos la capa: `scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena")`
+## **Paso 6: ¿Cómo cambiamos el color de las barras?**
 
-```{r renombrar_valores_x, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
-ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
-  geom_bar(stat = "identity", position=position_dodge(), color="black")+
-  scale_fill_manual(values=c("#713580", "#41b6a6"))+
-  scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena"))+
-  labs(x=" ", y="Propina", title="¿Quién da más propina?" )
+En el siguiente gráfico vamos a cambiar el color de relleno de las barras  utilizando una escala manual, para lo cual es necesario agregar una capa: **scale_fill_manual**, en donde definiremos los colores de cada valor.
+
+
+```{r color, echo=TRUE, fig.align='center', fig.height=6, fig.width=8, message=FALSE, warning=FALSE}
+# 1.4 Cambiamos los colores de las barras:"#713580", "#41b6a6" 
+ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex)) +
+  geom_bar(stat = "identity", position= position_dodge(), width=.7, color= "black") +
+  scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena")) +
+  scale_y_continuous(labels = scales::dollar) +
+    scale_fill_manual(values=c("#713580", "#41b6a6")) +
+  coord_cartesian() + 
+  labs(x= "", y= "Propina", title= "¿Quién da más propina?", subtitle = "¿Hombres o Mujeres?") 
+
 ```
 
 
 
-## **Temas** 
+## **Paso 7: Temas**
 
 Vamos a utilizar uno de los themes clásicos que trae ggplot2, y vamos a aprovechar para cambiar la presentación de los valores del eje 'y'.
 
@@ -229,7 +232,6 @@ ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
   labs(x=" ", y="Propina", title="¿Quién da más propina?", fill=' ')+
   theme_classic()
 ```
-
 
 
 
@@ -280,7 +282,7 @@ ggsave(here("grafico_barchart2.png"), height = 8, width = 6, units = "in", type=
 
 
 
-#Extras
+## **Extras**
 
 ## El paquete **ggtext**
 
@@ -290,7 +292,7 @@ El paquete `ggtext` permite extender las funcionalidades de ggplot2, mediante la
 
 
 
-```{r grafico_ggtext ,echo=TRUE, fig.align='center', fig.height=8, fig.width=6, message=FALSE, warning=FALSE, highlight=TRUE, tidy=TRUE   }
+```{r grafico_ggtext ,echo=TRUE, fig.align='center', fig.height=8, fig.width=6, message=FALSE, warning=FALSE, highlight=TRUE, tidy=TRUE}
 
 ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
   geom_bar(stat = "identity", position=position_dodge(), 
