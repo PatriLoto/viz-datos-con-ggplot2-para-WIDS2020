@@ -25,7 +25,6 @@ Lo primero que debemos hacer es cargar las librerías que utilizaremos:
 
 * [tidyverse](https://www.tidyverse.org/)
 * [here](https://here.r-lib.org/)
-* [DT](https://rstudio.github.io/DT/)
 * [ggtext](https://github.com/wilkelab/ggtext)
 
 ```{r librerias, echo=TRUE, message=FALSE, warning=FALSE}
@@ -39,13 +38,13 @@ library(ggtext)
 
 # Set de datos
 
-Trabajaremos con un dataframe formado por las siguientes variables: 'sex', 'time' y 'total_bill', el cual contiene datos de propinas entregadas en diferentes momentos del día.
+Trabajaremos con un dataframe formado por las siguientes variables  **sex**, **time** y **total_bill**, el cual contiene datos de propinas entregadas en diferentes momentos del día.
 
 
-```{r subset_ejemplo, message=FALSE, warning=FALSE, include=FALSE}
+```{r subset_ejemplo, message=FALSE, warning=FALSE, echo=TRUE}
 subset_propina<- data.frame(
- sex = factor(c("Female","Female","Male","Male")),
-  time = factor(c("Lunch","Dinner","Lunch","Dinner"), levels=c("Lunch","Dinner")),
+ sex = factor(c("Female", "Female", "Male", "Male")),
+  time = factor(c("Lunch", "Dinner", "Lunch", "Dinner"), levels=c("Lunch", "Dinner")),
   total_bill = c(13.53, 16.81, 16.24, 17.42))
 
 ```
@@ -80,11 +79,11 @@ subset_propina
 
 Antes de comenzar, recuerda que ggplot2 está basado en la **Grámatica de gráficos en capas**, por lo que, cada gráfico se contruyen en base a capas. Tampoco olvides que todo objeto de ggplot2 tiene al menos 3 componentes principales:
 
-* **Datos(data):** nuestro set de datos.
+* **Datos (data):** nuestro set de datos
 
-* **Atributos estéticos(aes):** un conjunto de mapeos estéticos entre las variables de nuestro set de datos y las propiedades visuales (tamaño, forma, etc.)
+* **Atributos estéticos (aes):** un conjunto de mapeos estéticos entre las variables de nuestro set de datos y las propiedades visuales (tamaño, forma, etc.).
 
-* **Capas(layers):** al menos una capa que describe cómo representar cada observación, usualmente creada con una **función geom**. Además cada capa opcionalmente tiene una  **stat** o **transformación estadística**, una **position** o **posición** y opcionalmente un conjunto de **mapeos estéticos**.
+* **Capas (layers):** al menos una capa que describe cómo representar cada observación, usualmente creada con una **función geom**. Además cada capa opcionalmente tiene una  **stat** o *transformación estadística*, una **position** o *posición* y opcionalmente un conjunto de **mapeos estéticos**.
 
 
 
@@ -97,7 +96,7 @@ El primer argumento es el conjunto de datos. Al correr `data = subset_propina`, 
 
 ```{r datos, message=FALSE, warning=FALSE,  fig.align='center', fig.height=6, fig.width=8, include=FALSE}
 
-ggplot(data=subset_propina)
+ggplot(data= subset_propina)
 ```
 
 
@@ -112,7 +111,7 @@ Mediante el **mapeo** o **mapping** le decimos a ggplot cuáles son las variable
 
 ```{r atributos_esteticos, echo=TRUE, message=FALSE, warning=FALSE,  fig.align='center', fig.height=6, fig.width=8}
 
-ggplot(data=subset_propina, mapping = aes(x=time, y=total_bill, fill=sex))
+ggplot(data= subset_propina, mapping = aes(x= time, y= total_bill, fill= sex))
 
 ```
 
@@ -127,8 +126,8 @@ ggplot2 incluye muchas funciones geom, en este caso, elegimos la función **geom
 
 ```{r funcion_geom, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=8, tidy=TRUE}
 
-ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex)) +
-       geom_bar(stat="identity", position = "stack", width=.7, color="black")
+ggplot(data= subset_propina, aes(x= time, y= total_bill, fill= sex)) +
+       geom_bar(stat= "identity", position = "stack", width= .7, color= "black")
 
 ```
 
@@ -147,9 +146,9 @@ Si no deseas un gráfico de barras apiladas puedes usar alguna de las otras tres
 
 
 ```{r barchart_dodge, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=8, fig.show = "hold"}
-# 1.2 gráfico de barras contiguas con position= "dodge"
-ggplot(data=subset_propina,aes(x=time, y=total_bill, fill=sex))+
-       geom_bar(stat="identity", position= "dodge",  width=.7, color="black")
+
+ggplot(data= subset_propina,aes(x= time, y= total_bill, fill= sex))+
+       geom_bar(stat= "identity", position= "dodge",  width= .7, color= "black")
 ```
 
 
@@ -160,8 +159,8 @@ ggplot(data=subset_propina,aes(x=time, y=total_bill, fill=sex))+
 
 
 ```{r position_fill, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=8}
-ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
-       geom_bar(stat = "identity", position= "fill", width=.7, color="black")
+ggplot(data= subset_propina, aes(x= time, y= total_bill, fill= sex))+
+       geom_bar(stat = "identity", position= "fill", width= .7, color= "black")
 
 ```
 
@@ -177,16 +176,17 @@ Finalmente, elijo la opción de **barras contiguas** ya que es más fácil compa
 ## **Paso 4: Sistemas de coordenadas y escalas**
 
 
-Para renombrar los valores del eje x,  correspondientes a **'Lunch'** y **'Dinner'**, utilizamos la siguiente capa: 
-`scale_x_discrete (limit=c ("Lunch","Dinner"), labels= c("Almuerzo", "Cena")`
+Para renombrar los valores del eje x, correspondientes a **'Lunch'** y **'Dinner'**, utilizamos la siguiente capa: 
+`scale_x_discrete (limit= c ("Lunch", "Dinner"), labels= c("Almuerzo",  "Cena")`
 
 
 
 
 ```{r coord_escalas_4, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=8}
-ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
-       geom_bar(stat = "identity", position=position_dodge(), width=.7, color="black")+
-       scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena"))+
+
+ggplot(data= subset_propina, aes(x= time, y= total_bill, fill= sex))+
+       geom_bar(stat = "identity", position= "dodge", width= .7, color= "black")+
+       scale_x_discrete(limit= c("Lunch", "Dinner"), labels= c("Almuerzo", "Cena"))+
        scale_y_continuous(labels = scales::dollar)+
        coord_cartesian()  
 ```
@@ -204,12 +204,13 @@ Para cambiar la etiqueta de los ejes **'x'** e **'y'** y para agregar título, s
 
 
 ```{r etiquetas_x_y, message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8}
-ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex))+
-       geom_bar(stat = "identity", position= position_dodge(), width=.7, color= "black")+
-       scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena"))+
+
+ggplot(data= subset_propina, aes(x= time, y= total_bill, fill= sex))+
+       geom_bar(stat = "identity", position= "dodge", width= .7, color= "black")+
+       scale_x_discrete(limit= c("Lunch", "Dinner"), labels= c("Almuerzo", "Cena"))+
        scale_y_continuous(labels = scales::dollar)+
        coord_cartesian() + 
-       labs(x= "", y= "Propina", title= "¿Quién da más propina?", subtitle = "¿Hombres o Mujeres?",  fill=' ')
+       labs(x= "", y= "Propina", title= "¿Quién da más propina?", subtitle = "¿Hombres o Mujeres?",  fill= ' ')
  
 ```
 
@@ -223,12 +224,12 @@ En el siguiente gráfico vamos a cambiar el color de relleno de las barras  util
 
 
 ```{r color,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8}
-# 1.4 Cambiamos los colores de las barras:"#713580", "#41b6a6" 
+
 ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex)) +
-       geom_bar(stat = "identity", position= position_dodge(), width=.7, color= "black") +
-       scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena")) +
+       geom_bar(stat = "identity", position= "dodge", width= .7, color= "black") +
+       scale_x_discrete(limit= c("Lunch", "Dinner"), labels=c("Almuerzo", "Cena")) +
        scale_y_continuous(labels = scales::dollar) +
-       scale_fill_manual(values=c("#713580", "#41b6a6"), labels=c('Mujeres','Hombres')) + #asignamos colores y etiquetas.
+       scale_fill_manual(values= c("#713580", "#41b6a6"), labels= c('Mujeres', 'Hombres')) + #asignamos colores y etiquetas.
        coord_cartesian() + 
        labs(x= "", y= "Propina", title= "¿Quién da más propina?", subtitle = "¿Hombres o Mujeres?",  fill=' ') 
 
@@ -243,12 +244,12 @@ ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex)) +
 Vamos a utilizar uno de los themes clásicos que trae ggplot2, y vamos a aprovechar para cambiar la presentación de los valores del eje 'y'.
 
 ```{r theme_classic,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=6, fig.width=8}
-ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
-       geom_bar(stat = "identity", position=position_dodge(), widht=.3, color="black")+
-       scale_fill_manual(values=c("#713580", "#41b6a6"), labels=c('Mujeres','Hombres'))+
-       scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena"))+
+ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex))+
+       geom_bar(stat = "identity", position= "dodge", width = .7, color= "black")+
+       scale_fill_manual(values= c("#713580", "#41b6a6"), labels= c('Mujeres', 'Hombres'))+
+       scale_x_discrete(limit= c("Lunch", "Dinner"), labels= c("Almuerzo", "Cena"))+
        scale_y_continuous(labels = scales::dollar)+
-       labs(x=" ", y="Propina", title="¿Quién da más propina?", fill=' ')+
+       labs(x=" ", y="Propina", title="¿Quién da más propina?", fill= ' ')+
        theme_classic()
 ```
 
@@ -260,32 +261,32 @@ ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
 
 A continuación, modificaremos el color y el tamaño tanto del título como de la leyenda del gráfico. Y por último, vamos a cambiar la posición de la leyenda correspondiente a la variable 'Sexo' y a renombrar cada uno de sus valores. Para cambiar dichos valores, es necesario usar la configuración del theme() ó tema. En la configuración del tema, la sentencia 'legend.position', controla la posición de la leyenda, por defecto, la posición es a la derecha y las restantes opciones son:
 
-* `theme(legend.position = "left"`
-* `theme(legend.position = "top")`
-* `theme(legend.position = "bottom")`
+* `theme (legend.position = "left"`
+* `theme (legend.position = "top")`
+* `theme (legend.position = "bottom")`
 
 
 
 
 ```{r theme_bw,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=8, fig.width=6, tidy=TRUE}
 
-ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
-       geom_bar(stat = "identity", position=position_dodge(), 
-           widht=.3, color="#2c204d")+
-       scale_fill_manual(values=c("#713580", "#41b6a6"), labels=c('Mujeres','Hombres'))+
-       scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena"))+
+ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex))+
+       geom_bar(stat = "identity", position= "dodge", 
+           width= .7, color= "#2c204d") +
+       scale_fill_manual(values= c("#713580", "#41b6a6"), labels= c('Mujeres', 'Hombres')) +
+       scale_x_discrete(limit= c("Lunch", "Dinner"), labels= c("Almuerzo", "Cena")) +
        scale_y_continuous(labels = scales::dollar)+
-       labs(x=" ", y="Propina", title="¿Quién da más propina?", fill=' ')+ 
+       labs(x=" ", y="Propina", title="¿Quién da más propina?", fill= ' ') + 
        theme_classic()+ 
        theme(text = element_text(size=14, face = 'bold', color = "#2c204d"),
-             plot.title = element_text(size=18,            #cambiamos el tamaño, fuente y color del título
+             plot.title = element_text(size=18,                     #cambiamos el tamaño, fuente y color del título
                                    family ="Garamond",    
                               hjust = 0.5,vjust = 1,
                               colour = "#2c204d", 
                               face = 'bold', 
                               margin = margin(b = 12 * 1.2)),
              legend.position="top",legend.text= element_text(color="#2c204d", 
-             size= 12, hjust = 0.5,vjust = 1, family ="Garamond")) #cambiamos tamaño, fuente y color de la leyenda      
+             size= 12, hjust = 0.5,vjust = 1, family ="Garamond"))   #cambiamos tamaño, fuente y color de la leyenda      
       
 
 
@@ -300,7 +301,7 @@ ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
 Guardamos la figura obtenida en formato png y definimos la dimensión de la misma, asignando valores a los parámetros **height** (altura) y **width** (ancho).
 
 ```{r grafico_png,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=8, fig.width=6, highlight=TRUE, tidy=TRUE}
-ggsave(here("grafico_barchart2.png"), height = 8, width = 6, units = "in", type='cairo')
+ggsave(here("grafico_barchart2.png"), height = 8, width = 6, units = "in", type= 'cairo')
 
 ```
 
@@ -319,25 +320,25 @@ El paquete `ggtext` permite extender las funcionalidades de ggplot2, mediante la
 
 ```{r grafico_ggtext ,  message=FALSE, warning=FALSE, echo=TRUE, fig.align='center', fig.height=8, fig.width=6, highlight=TRUE, tidy=TRUE}
 
-ggplot(data=subset_propina, aes(x=time, y=total_bill, fill=sex))+
-       geom_bar(stat = "identity", position=position_dodge(), 
-           widht=.3, color="#2c204d")+
-       scale_fill_manual(values=c("#713580", "#41b6a6"), labels=c('Mujeres','Hombres'))+
-       scale_x_discrete(limit=c("Lunch","Dinner"), labels=c("Almuerzo", "Cena"))+
+ggplot(data=subset_propina, aes(x= time, y= total_bill, fill= sex))+
+       geom_bar(stat = "identity", position="dodge", 
+           width= .7, color= "#2c204d")+
+       scale_fill_manual(values= c("#713580", "#41b6a6"), labels= c('Mujeres', 'Hombres'))+
+       scale_x_discrete(limit= c("Lunch", "Dinner"), labels= c("Almuerzo", "Cena"))+
        scale_y_continuous(labels = scales::dollar)+
        labs(x=" ", y="Propina", title="¿Quién da más propina?",
        subtitle = "¿<span style='color:#41b6a6'>Hombres</span> o <span  style='color:#713580'> Mujeres</span>?")+ 
        theme_classic()+ 
        theme(text = element_text(size=14, face = 'bold', color = "#2c204d"),
-             plot.title = element_text(size=18,            #cambiamos el tamaño, fuente y color del título
-                                   family ="Garamond",    
+             plot.title = element_text(size= 18,            #cambiamos el tamaño, fuente y color del título
+                                   family = "Garamond",    
                               hjust = 0.5,vjust = 1,
                               colour = "#2c204d", 
                               face = 'bold', 
                               margin = margin(b = 12 * 1.2)),
              plot.subtitle = element_markdown(hjust = 0.5,vjust = 1),
-             legend.position="none",legend.text= element_text(color="#2c204d", 
-                size= 12, hjust = 0.5,vjust = 1, family ="Garamond")) #cambiamos tamaño, fuente y color de la leyenda      
+             legend.position= "none",legend.text= element_text(color= "#2c204d", 
+                size= 12, hjust = 0.5,vjust = 1, family = "Garamond")) #cambiamos tamaño, fuente y color de la leyenda      
 
 
 ggsave(here("grafico_ggtext.png"), height = 8, width = 6, units = "in", type='cairo')
