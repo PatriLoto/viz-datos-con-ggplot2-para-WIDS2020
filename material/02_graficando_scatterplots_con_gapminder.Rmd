@@ -174,8 +174,7 @@ ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color = continen
 
 **¿Y si queremos cambiar el color?**
 
-Existen muchos paquetes de paletas de colores y cada uno ofrece diferentes opciones, por ejemplo el 
-paquete **RColorBrewer** ofrece:
+Existen muchos paquetes de paletas de colores y cada uno ofrece diferentes opciones, por ejemplo el paquete **RColorBrewer** ofrece:
 
 
 - **Opciones de paletas cualitativas**
@@ -259,7 +258,7 @@ pdark2
 Utilizamos una escala manual de colores mediante la opción `scale_color_manual(values= c("color1", "color2",..., "colorN"), labels= c("nombre1", "nombre2",..., "nombreN"))`, en la misma especificamos los colores elegidos y las etiquetas de cada uno de ellos. 
 
 ```{r grafico_colores_propios, message=FALSE, warning=FALSE, fig.height=8, fig.width=10, fig.show = "hold"}
-pmanual <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color =            continent))+ 
+pmanual <- ggplot(data = gapminder,mapping = aes(x = gdpPercap,y = lifeExp,color = continent))+ 
     geom_point(size=3)+
     scale_color_manual(values = c("#41b6a6", "#f6e37c",   "#f5a26b","#51b8df","#713580"), labels = c("Africa", "América","Asia",  "Europa", "Oceanía"))+
     coord_cartesian()+
@@ -432,7 +431,7 @@ En nuestro caso, utilizaremos la primera opción `method = "gam"` y recuerda que
 
 ```{r capa_smooth,  message=FALSE, warning=FALSE, fig.height=10, fig.width=12, fig.show = "hold"}
 
-text_size <-16   # tamaño base del texto
+text_size <-14   # tamaño base del texto
 margin_size <- text_size/2  #de los margenes
 
 # Asignamos el gráfico `ggplot' al objeto p_capa_smooth
@@ -668,15 +667,22 @@ ggsave(here("grafico_patchwork.png"), height = 12, width = 14, units = "in", typ
 
 
 
-## **13- Gráficos interactivos con Plotly**
+## **13- Gráficos interactivos con plotly**
 
-```{r para_plotly, message=FALSE, warning=FALSE,include=FALSE, fig.height=6,fig.width=8, fig.show="hold"}
+Utilizamos la librería [plotly](https://plot.ly/r/) para convertir gráficos estáticos generados con ggplot2 en gráficos interactivos. 
+Necesito volver a ejecutar el gráfico de la sección 9 para formatear la presentación de los variables, 'continente', 'ingreso per cápita' y 'esperanza de vida' que luego se mostraran en el gráfico interactivo. ¿Cómo lo hago? En la parte de los mapeos estéticos agregó: 
 
-#Volvemos a ejecutar el gráfico con asignandole un tamaño menor al título para que quedé mejor en el gráfico interactivo. 
+`text = paste('<b>Continente:</b> ' , continent,'<br />','<b>Ingreso per cápita:</b> ','$', round(gdpPercap,2),'<br>', '<b>Expectativa de vida:</b> ', round(lifeExp,1))))`
+`
+
+
+```{r para_plotly, eval=FALSE, fig.height=6, fig.show="hold", fig.width=8, message=FALSE, warning=FALSE, include=FALSE}
+
+# #Volvemos a ejecutar el gráfico con asignandole un tamaño menor al título para que quedé mejor en el gráfico interactivo. 
 text_size <-14   # tamaño base del texto
 margin_size <- text_size/2  #de los margenes
 
-p_capa_smooth <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp)) +
+p_capa_smooth <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp , text = paste('<b>Continente:</b> ' , continent,'<br />','<b>Ingreso per cápita:</b> ','$', round(gdpPercap,2),'<br>', '<b>Expectativa de vida:</b> ', round(lifeExp,1)))) +
   geom_point(aes(color=continent),size=3,alpha=0.6) +
   geom_smooth(method = 'gam', col = "#2c204d", size = 0.7,
               fill = "gray60", alpha = 0.2) +
@@ -687,22 +693,22 @@ p_capa_smooth <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp)) +
   guides(color = guide_legend(override.aes = list(size = 5)))+
   theme_light()+
   theme(legend.position="bottom", legend.key= element_rect(fill='NA'),
-        legend.text= element_text(color="#2c204d", 
-                                  size= text_size), 
+        legend.text= element_text(color="#2c204d",
+                                  size= text_size),
         legend.justification = "center",
-        
-        plot.title = element_text(size=(text_size * 1.8),family ="Garamond",    
+
+        plot.title = element_text(size=(text_size * 1.8),family ="Garamond",
                               hjust = 0.5,vjust = 1,
                               colour = "#2c204d", #
-                              face = 'bold', 
+                              face = 'bold',
                               margin = margin(b = margin_size * 1.2)),
         plot.subtitle = element_text(size = text_size * 1.3,
-                             family ="Garamond", hjust = 0.5, vjust = 1, 
+                             family ="Garamond", hjust = 0.5, vjust = 1,
                              colour = "#2c204d",
                             margin = margin(b = margin_size * 0.9)),
         plot.caption = element_text(size = 11,family ="Garamond",
                                     hjust = 1, vjust = 1,
-                                    colour = "#2c204d", 
+                                    colour = "#2c204d",
                                     face='bold',
                                     margin = margin(t = margin_size * 0.9)),
         panel.background = element_rect(fill = "white"),
@@ -714,26 +720,104 @@ p_capa_smooth
 
 
 
+Con la sentencia `ggplotly(p_capa_smooth, tooltip = "text")` convierto la figura anterior en una interactiva, con 'tooltip = "text"' le indicó que me muestre las variables con el formato especificado anteriormente.
+
+
+
 ```{r graficos_plotly,message=FALSE, warning=FALSE, fig.height=6, fig.width=9, fig.show="hold"}
 
 # Cargamos la líbreria plotly
 library(plotly)
+
 # Forma directa de utilizar plotly
 
-#ggplotly(pTheme_final)
-ggplotly(p_capa_smooth, hoverinfo = "all") 
+ggplotly(p_capa_smooth, tooltip = "text")
+ 
 
 ```
 
+
+Gráfico en facetas interactivo
 
 ```{r graficos_plotly_2, message=FALSE, warning=FALSE, fig.show="hold", fig.height=8, fig.width=9.5 }
-library(plotly)
-ggplotly(p_facet)
-ggplotly(p_facet_dark)
+
+
+p_facet_dark <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp, color=continent, text = paste('<b>Continente:</b> ' , continent,'<br />','<b>Ingreso per cápita:</b> ','$', round(gdpPercap,2),'<br>', '<b>Expectativa de vida:</b> ', round(lifeExp,1)))) +
+  geom_point(size=3,alpha=0.6)+
+  scale_x_log10(labels= scales::dollar)+
+  scale_color_manual(values= c("#41b6a6", "#f6e37c","#f5a26b","#51b8df","#713580"), labels= c("Africa", "America", "Asia","Europa", "Oceanía"))+
+  labs(x="Ingreso (PBI) Per Capita", y="Esperanza de vida en años",
+       title ="Crecimiento económico y esperanza de vida", subtitle ="Los puntos se representan por año-país" , caption = "DataSource: Gapminder- Link: https://www.gapminder.org.", color= '')+
+  guides(color = guide_legend(override.aes = list(size = 5)))+
+  theme_ft_rc()+
+  theme(legend.position="bottom")+
+  facet_wrap(~continent, ncol = 2, scales="free") 
+
+p_facet_dark
+
+ggplotly(p_facet_dark, tooltip = "text")
 ```
 
 
 
+
+
+```{r grafico_animado,warning=FALSE, fig.show="hold", fig.height=10, fig.width=12}
+
+## **14- Gráficos animados con gganimate**
+
+# Utilizaremos la librería [gganimate](https://github.com/thomasp85/gganimate) para convertir los gráficos estáticos en gráficos interactivos.
+# 
+# 
+# library(gganimate)
+# install.packages("gifski")
+# library(gifski)
+
+# ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = continent)) +
+#   geom_point(alpha = 0.7, show.legend = FALSE) +
+#   scale_color_manual(values= c("#41b6a6", "#f6e37c","#f5a26b","#51b8df","#713580"), labels= c("Africa", "America", "Asia","Europa", "Oceanía")) +
+#   scale_size(range = c(2, 12)) +
+#  scale_x_log10(labels= scales::dollar) +
+#   facet_wrap(~continent) +
+#   # Here comes the gganimate specific bits
+#   labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
+#   transition_time(year) +
+#   ease_aes('linear')
+
+
+# pFacet_Animado <- ggplot(data=gapminder, mapping=aes(x= gdpPercap, y= lifeExp, 
+#                                                      size = pop, color=continent))+
+#   geom_point(size=3,alpha=0.7) +
+#   scale_x_log10(labels= scales::dollar) +
+#   scale_color_manual(values= c("#41b6a6", "#f6e37c","#f5a26b","#51b8df","#713580"),     labels= c("Africa", "America", "Asia","Europa", "Oceanía")) +
+#   scale_size(range = c(2, 12)) +
+#   guides(color = guide_legend(override.aes = list(size = 5))) +
+#   theme_ft_rc() +
+#   theme(legend.position="bottom") +
+#   facet_wrap(~continent, ncol = 2, scales="free") +
+#   labs(title ="Crecimiento económico y esperanza de vida", subtitle = 'Año: {round(frame_time,0)}', x="Ingreso (PBI) Per Cápita", y="Esperanza de vida en años",
+#        caption = "DataSource: Gapminder - Link: https://www.gapminder.org.", 
+#        color= '') +
+#       transition_time(year) +
+#       ease_aes('linear') +
+#   shadow_mark(alpha = 0.6, size = 2.5)
+# 
+#   
+# pFacet_Animado 
+# 
+# 
+# 
+# last_animation()   # o               
+# animate(pFacet_Animado)
+# anim_save("gganimate_orange.gif")
+# 
+# 
+# 
+# 
+# save_animation(here("prueba.gif"))
+
+
+```
 
 
 ## **Referencias** 
