@@ -125,6 +125,7 @@ Para profundizar en el tema de la visualización de datos.
 * [The R graph Gallery](https://www.r-graph-gallery.com/)
 * [Highcharter](http://jkunst.com/highcharter/)
 * [From Data to Viz](https://www.data-to-viz.com/)
+* [RStudio Education](https://rstudio.cloud/learn/primers/3)
 
 ### Blogs.
 
