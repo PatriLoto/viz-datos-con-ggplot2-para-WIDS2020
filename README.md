@@ -80,7 +80,7 @@ Tanto la [presentación](https://github.com/PatriLoto/viz-datos-con-ggplot2-para
 
 Para la elaboración tanto del material teórico como de los ejercicios prácticos se utilizaron como referencia, los libros descriptos a continuación:
 
-* [A Data Visualization: a practical introduction](http://socviz.co/) de Kieran Healy.  
+* [A Data Visualization: a practical introduction](http://socviz.co/) de [Kieran Healy](@kjhealy).  
 
 * [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) de [Claus Wilke](@ClausWilke).
 
