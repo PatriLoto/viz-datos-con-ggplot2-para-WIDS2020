@@ -131,10 +131,10 @@ Para profundizar en el tema de la visualización de datos.
 
 * [A ggplot2 Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
 
-### Tutoriales
+### Talks.
 
 * [Take A Sad Plot & Make It Better](https://alison.netlify.app/uo-sad-plot-better/#1) por [Alison Presmanes Hill](@apreshill)
-* [Take A Sad Plot & Make It Better](https://alison.netlify.app/uo-sad-plot-better/#1) por Apres Hill
+* [Plot Twist: 10 Bake Offs, Visualized 11 Ways](https://alison.netlify.app/rls-plot-twist/#1) por [Alison Presmanes Hill](@apreshill)
 
 
 
