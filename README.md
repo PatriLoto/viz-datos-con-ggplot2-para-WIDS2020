@@ -129,7 +129,7 @@ Para profundizar en el tema de la visualización de datos.
 
 ### Blogs.
 
-* [A ggplot2 Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
+* [A ggplot2 Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/) por [Cédric Scherer](@CedScherer)
 
 ### Talks.
 
