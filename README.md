@@ -120,7 +120,7 @@ Para profundizar en el tema de la visualización de datos.
 
 * [Graphical Data Analysis with R](http://www.gradaanwr.net/content/) de Antony Unwin.
 
-### Sitios Webs sobre visualización.
+### Sitios Webs.
 
 * [The R graph Gallery](https://www.r-graph-gallery.com/)
 * [Highcharter](http://jkunst.com/highcharter/)
@@ -131,6 +131,10 @@ Para profundizar en el tema de la visualización de datos.
 
 * [A ggplot2 Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
 
+### Tutoriales
+
+* [Take A Sad Plot & Make It Better](https://alison.netlify.app/uo-sad-plot-better/#1) por [Alison Presmanes Hill](@apreshill)
+* [Take A Sad Plot & Make It Better](https://alison.netlify.app/uo-sad-plot-better/#1) por Apres Hill
 
 
 
