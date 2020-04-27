@@ -110,7 +110,7 @@ En el presente curso trabajaremos con el paquete ggplot2, pero existen otros paq
 
 Espero te sean de utilidad.
 
-###  :books:  Algunos Libros para profundizar en el tema de la visualización de datos.
+###  :books:  Libros para profundizar en la visualización de datos.
 
 
 * [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) de [Hadley Wickham](@hadleywickham).
@@ -126,11 +126,11 @@ Espero te sean de utilidad.
 * [From Data to Viz](https://www.data-to-viz.com/)
 * [RStudio Education](https://rstudio.cloud/learn/primers/3)
 
-### Blogs.
+### Tutoriales.
 
 * [A ggplot2 Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/) por [Cédric Scherer](@CedScherer)
 
-### Talks.
+### Presentaciones.
 
 * [Take A Sad Plot & Make It Better](https://alison.netlify.app/uo-sad-plot-better/#1) por [Alison Presmanes Hill](@apreshill)
 * [Plot Twist: 10 Bake Offs, Visualized 11 Ways](https://alison.netlify.app/rls-plot-twist/#1) por [Alison Presmanes Hill](@apreshill)
