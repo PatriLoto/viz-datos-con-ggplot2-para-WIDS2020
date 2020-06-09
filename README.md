@@ -139,7 +139,7 @@ Espero te sean de utilidad.
 
 ### Para enseñar visualización de datos.
 * ["Let them eat cake (first)!"](https://github.com/mine-cetinkaya-rundel/eatcake) por [Mine Cetinkaya-Rundel ](http://mine-cr.com)
-
+* [Incorporating visualization into statistics education](https://github.com/mine-cetinkaya-rundel/2016-03-04-viz-forum/blob/master/2016-03-04-viz-forum.pdf) por [Mine Cetinkaya-Rundel ](http://mine-cr.com)
 
 
 
