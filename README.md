@@ -137,6 +137,9 @@ Espero te sean de utilidad.
 * [Data Visualisation in R](https://satrdayjoburg.djnavarro.net/slides) por [Danielle Navarro](@djnavarro)
 * [Robust-tools: data visualization](https://robust-tools.djnavarro.net/visualisation/) por [Danielle Navarro](@djnavarro)
 
+## Para enseñar visualización de datos:
+* ["Let them eat cake (first)!"](https://github.com/mine-cetinkaya-rundel/eatcake/blob/master/01-harvard/eat-cake.pdf) por [Mine Cetinkaya-Rundel ](http://mine-cr.com)
+
 
 
 
