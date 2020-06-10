@@ -134,8 +134,10 @@ Espero te sean de utilidad.
 
 * [Take A Sad Plot & Make It Better](https://alison.netlify.app/uo-sad-plot-better/#1) por [Alison Presmanes Hill](@apreshill)
 * [Plot Twist: 10 Bake Offs, Visualized 11 Ways](https://alison.netlify.app/rls-plot-twist/#1) por [Alison Presmanes Hill](@apreshill)
+* [Data Visualization in the Tidyverse](https://alison.netlify.app/uo-tidy-bakeoff/#1) por [Alison Presmanes Hill](@apreshill)
 * [Data Visualisation in R](https://satrdayjoburg.djnavarro.net/slides) por [Danielle Navarro](@djnavarro)
 * [Robust-tools: data visualization](https://robust-tools.djnavarro.net/visualisation/) por [Danielle Navarro](@djnavarro)
+
 
 ### Para enseñar visualización de datos.
 * ["Let them eat cake (first)!"](https://github.com/mine-cetinkaya-rundel/eatcake) por [Mine Cetinkaya-Rundel ](http://mine-cr.com)
