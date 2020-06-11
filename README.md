@@ -129,6 +129,7 @@ Espero te sean de utilidad.
 ### Tutoriales.
 
 * [A ggplot2 Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/) por [Cédric Scherer](@CedScherer)
+* [The Grammar and Graphics of Data Science](https://rstudio.com/resources/additional-talks/the-grammar-and-graphics-of-data-science/) por Rstudio.
 
 ### Presentaciones.
 
