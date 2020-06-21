@@ -139,6 +139,8 @@ Espero te sean de utilidad.
 * [Data Visualisation in R](https://satrdayjoburg.djnavarro.net/slides) por [Danielle Navarro](@djnavarro)
 * [Robust-tools: data visualization](https://robust-tools.djnavarro.net/visualisation/) por [Danielle Navarro](@djnavarro)
 
+### Talleres.
+* [Charlar con R - Toma 5 | Visualizaciones y datos textuales para R-Ladies Bs-As.](https://www.youtube.com/watch?v=WXp1T9JEIRM) por [María Nanton](@bynans1)
 
 ### Para enseñar visualización de datos.
 * ["Let them eat cake (first)!"](https://github.com/mine-cetinkaya-rundel/eatcake) por [Mine Cetinkaya-Rundel ](http://mine-cr.com)
