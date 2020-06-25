@@ -131,17 +131,21 @@ Espero te sean de utilidad.
 * [A ggplot2 Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/) por [Cédric Scherer](@CedScherer)
 * [The Grammar and Graphics of Data Science](https://rstudio.com/resources/additional-talks/the-grammar-and-graphics-of-data-science/) por Rstudio.
 
-### Presentaciones.
+### Presentaciones en español.
+* [Taller Introductorio a ggplot2](https://gabysandovalm.github.io/RLadiesChile_intro_ggplot/Presentacion_introggplot2#1) por [Gaby Sandoval](@GabySandovalM) para R-Ladies Santiago.
 
+### Presentaciones en inglés.
 * [Take A Sad Plot & Make It Better](https://alison.netlify.app/uo-sad-plot-better/#1) por [Alison Presmanes Hill](@apreshill)
 * [Plot Twist: 10 Bake Offs, Visualized 11 Ways](https://alison.netlify.app/rls-plot-twist/#1) por [Alison Presmanes Hill](@apreshill)
 * [Data Visualization in the Tidyverse](https://alison.netlify.app/uo-tidy-bakeoff/#1) por [Alison Presmanes Hill](@apreshill)
 * [Data Visualisation in R](https://satrdayjoburg.djnavarro.net/slides) por [Danielle Navarro](@djnavarro)
 * [Robust-tools: data visualization](https://robust-tools.djnavarro.net/visualisation/) por [Danielle Navarro](@djnavarro)
-* [Taller Introductorio a ggplot2](https://gabysandovalm.github.io/RLadiesChile_intro_ggplot/Presentacion_introggplot2#1) por [Gaby Sandoval](@GabySandovalM) para R-Ladies Santiago.
 
-### Talleres.
+
+### Talleres/Videos.
 * [Charlar con R - Toma 5 | Visualizaciones y datos textuales para R-Ladies Bs-As.](https://www.youtube.com/watch?v=WXp1T9JEIRM) por [María Nanton](@bynans1)
+* [ggplot2 workshop part 1](https://www.youtube.com/watch?v=h29g21z0a68) por Thomas Lin Pedersen.
+
 
 ### Para enseñar visualización de datos.
 * ["Let them eat cake (first)!"](https://github.com/mine-cetinkaya-rundel/eatcake) por [Mine Cetinkaya-Rundel ](http://mine-cr.com)
