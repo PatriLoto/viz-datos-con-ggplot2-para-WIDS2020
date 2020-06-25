@@ -145,6 +145,7 @@ Espero te sean de utilidad.
 
 ### Talleres/Videos.
 * [Charlar con R - Toma 5 | Visualizaciones y datos textuales para R-Ladies Bs-As.](https://www.youtube.com/watch?v=WXp1T9JEIRM) por [María Nanton](@bynans1)
+* [Drawing Anything with ggplot2]() por Thomas Lin Pedersen.
 * [ggplot2 workshop part 1](https://www.youtube.com/watch?v=h29g21z0a68) por Thomas Lin Pedersen.
 * [ggplot2 workshop part 2](https://www.youtube.com/watch?v=0m4yywqNPVY) por Thomas Lin Pedersen.
 
