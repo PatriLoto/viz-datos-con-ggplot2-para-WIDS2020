@@ -80,17 +80,17 @@ Tanto la [presentación](https://github.com/PatriLoto/viz-datos-con-ggplot2-para
 
 Para la elaboración tanto del material teórico como de los ejercicios prácticos se utilizaron como referencia, los libros descriptos a continuación:
 
-* [A Data Visualization: a practical introduction](http://socviz.co/) de [Kieran Healy](@kjhealy).  
-
-* [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) de [Claus Wilke](@ClausWilke).
+* [R para Ciencia de Datos](https://es.r4ds.hadley.nz/) de Hadley Wickham - [Capítulo 3: Visualización de datos](https://es.r4ds.hadley.nz/visualizaci%C3%B3n-de-datos.html) y [Capítulo 28: Comunicar con gráficos](https://es.r4ds.hadley.nz/comunicar-con-gr%C3%A1ficos.html).
 
 * [R Graphics Cookbook: Practical Recipes for Visualizing Data](http://www.cookbook-r.com/Graphs/) de Winston Chang  - [Capítulo 1: 
 Bar and line graphs](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/).
 
-* [R para Ciencia de Datos](https://es.r4ds.hadley.nz/) de Hadley Wickham - [Capítulo 3: Visualización de datos](https://es.r4ds.hadley.nz/visualizaci%C3%B3n-de-datos.html) y [Capítulo 28: Comunicar con gráficos](https://es.r4ds.hadley.nz/comunicar-con-gr%C3%A1ficos.html).
+* [A Data Visualization: a practical introduction](http://socviz.co/) de [Kieran Healy](@kjhealy).  
+
+* [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) de [Claus Wilke](@ClausWilke).
 
 
-# **Material Extra**
+# **Material y Recursos Extras**
 
 ### :package: Paquetes
 
@@ -133,6 +133,7 @@ Espero te sean de utilidad.
 
 ### Presentaciones en español.
 * [Taller Introductorio a ggplot2](https://gabysandovalm.github.io/RLadiesChile_intro_ggplot/Presentacion_introggplot2#1) por [Gaby Sandoval](@GabySandovalM) para R-Ladies Santiago.
+* [Visualización de datos espaciales](https://sporella.github.io/datos_espaciales_presentacion/#1) por [Steph Orellana Bello](@sporella) para R-Ladies Santiago.
 
 ### Presentaciones en inglés.
 * [Take A Sad Plot & Make It Better](https://alison.netlify.app/uo-sad-plot-better/#1) por [Alison Presmanes Hill](@apreshill)
