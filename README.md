@@ -131,6 +131,8 @@ Espero te sean de utilidad.
 * [A ggplot2 Tutorial for Beautiful Plotting in R](https://cedricscherer.netlify.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/) por [Cédric Scherer](@CedScherer)
 * [The Grammar and Graphics of Data Science](https://rstudio.com/resources/additional-talks/the-grammar-and-graphics-of-data-science/) por Rstudio.
 
+* [Tutorial interactivo de gráficos con el paquete learnr](https://github.com/yabellini/tutorialgRaficosFN) por Yanina Bellini Saibene 
+
 ### Presentaciones en español.
 * [Taller Introductorio a ggplot2](https://gabysandovalm.github.io/RLadiesChile_intro_ggplot/Presentacion_introggplot2#1) por [Gaby Sandoval](@GabySandovalM) para R-Ladies Santiago.
 * [Visualización de datos espaciales](https://sporella.github.io/datos_espaciales_presentacion/#1) por [Steph Orellana Bello](@sporella) para R-Ladies Santiago.
