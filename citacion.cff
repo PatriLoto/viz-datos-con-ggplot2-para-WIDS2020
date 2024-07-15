@@ -1,1 +1,14 @@
-Patricia A. Loto. (2024). PatriLoto/viz-datos-con-ggplot2-para-WIDS2020: Primer publicación (version_original). Zenodo. https://doi.org/10.5281/zenodo.12743985
+abstract: "<p>Primera publicación del material generado para el workshop dictado\
+  \ en la conferencia WIDS2020</p>"
+authors:
+- affiliation: Metadocencia - Facultad de Ciencias Agrarias, UNNE
+  family-names: Patricia A. Loto
+cff-version: 1.2.0
+date-released: '2024-07-15'
+doi: 10.5281/zenodo.12743985
+license:
+- cc-by-4.0
+repository-code: https://github.com/PatriLoto/viz-datos-con-ggplot2-para-WIDS2020/tree/version_original
+title: "PatriLoto/viz-datos-con-ggplot2-para-WIDS2020: Primer publicaci\xF3n"
+type: software
+version: version_original
